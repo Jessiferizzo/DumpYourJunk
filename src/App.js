@@ -1,5 +1,7 @@
 import React from 'react';
-import About from './components/About';
+import About from './components/About/homepage';
+import LoginForm from './components/Login/login';
+
 
 function App() {
 
@@ -7,6 +9,7 @@ function App() {
     <div>
       <main>
         <About></About>
+        <LoginForm></LoginForm>
       </main>
     </div>
   );
