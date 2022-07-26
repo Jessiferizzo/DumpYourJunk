@@ -9,9 +9,7 @@ function App() {
   return (
     <div>
       <main>
-        <About></About>
         <LoginForm></LoginForm>
-        <HomepageLayout></HomepageLayout>
       </main>
     </div>
   );
