@@ -9,7 +9,7 @@ const LoginForm = () => (
         <Icon name='sign in' size='big'></Icon>Login to your account</Header>
       <Segment >
         <Form>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+          <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' />
           <Form.Input
             fluid
             icon='lock'
