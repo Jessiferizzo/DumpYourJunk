@@ -1,7 +1,9 @@
 import React from 'react';
-import About from './components/About/homepage';
+import Album from './components/Gallery';
 import LoginForm from './components/Login';
-import HomepageLayout from './components/Homepage';
+import About from './components/About';
+import Checkout from './components/Checkout/Checkout';
+import PrimarySearchAppBar from './components/Nav';
 
 
 function App() {
@@ -9,10 +11,16 @@ function App() {
   return (
     <div>
       <main>
+      <PrimarySearchAppBar></PrimarySearchAppBar>
         <About></About>
         <LoginForm></LoginForm>
-        <HomepageLayout></HomepageLayout>
       </main>
+      <section>
+        <Album></Album>
+      </section>
+      <section>
+        <Checkout></Checkout>
+      </section>
     </div>
   );
 }
