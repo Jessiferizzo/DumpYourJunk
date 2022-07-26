@@ -1,14 +1,14 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment, Icon } from 'semantic-ui-react'
 
 const LoginForm = () => (
   <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
-        <Image src='../../assets/cover/junk.jpg' /> Log-in to your account
-      </Header>
-      <Form size='large'>
-        <Segment stacked>
+    <Grid.Column style={{ maxWidth: 500 }}>
+
+      <Header as='h2' color='blue' textAlign='Center'>
+        <Icon name='sign in' size='big'></Icon>Login to your account</Header>
+      <Segment >
+        <Form>
           <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
           <Form.Input
             fluid
@@ -17,14 +17,12 @@ const LoginForm = () => (
             placeholder='Password'
             type='password'
           />
-
-          <Button color='teal' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form>
+          <Button type='submit' fluid size='Large' color='blue'>Submit</Button>
+        </Form>
+      </Segment>
       <Message>
-        New to us? <a href='/'>Sign Up</a>
+        {/*Link below need to link to our sign-up page */}
+        Need to {/*<a href='#'> Sign-up?</a>*/}
       </Message>
     </Grid.Column>
   </Grid>
