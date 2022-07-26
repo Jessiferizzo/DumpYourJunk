@@ -25,6 +25,7 @@ const LoginForm = () => (
         Need to {/*<a href='#'> Sign-up?</a>*/}
       </Message>
     </Grid.Column>
+
   </Grid>
 )
 
