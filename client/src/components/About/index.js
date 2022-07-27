@@ -15,18 +15,20 @@ export default function ColorTabs() {
       <Tabs
         value={value}
         onChange={handleChange}
+        variant="scrollable"
         textColor="secondary"
+        scrollButtons="auto"
         indicatorColor="secondary"
-        aria-label="secondary tabs example"
+        aria-label="scrollable auto tabs example"
       >
         <Tab value="one" label="Electronics" />
         <Tab value="two" label="Home and Garden" />
         <Tab value="three" label="Clothing, Shoes, Accessories" />
-        <Tab value="one" label="Toys, Games, Hobbies" />
-        <Tab value="two" label="Sports and Outdoors" />
-        <Tab value="three" label="Health and Beauty" />
-        <Tab value="three" label="Pets" />
-        <Tab value="three" label="More" />
+        <Tab value="four" label="Toys, Games, Hobbies" />
+        <Tab value="five" label="Sports and Outdoors" />
+        <Tab value="six" label="Health and Beauty" />
+        <Tab value="seven" label="Pets" />
+        <Tab value="eight" label="More" />
       </Tabs>
     </Box>
   );

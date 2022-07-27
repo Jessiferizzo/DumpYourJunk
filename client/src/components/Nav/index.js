@@ -15,6 +15,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 
+import options from './burger-menu'
+
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2,),
@@ -35,7 +37,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '20ch',
+      width: '100%',
     },
   },
 }));
@@ -49,10 +51,18 @@ const Search = styled('div')(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: '20%',
-  [theme.breakpoints.up('sm')]: {
+  width: '50%',
+  [theme.breakpoints.down('lg')]: {
     marginLeft: theme.spacing(3),
-    width: 'auto',
+    width: '40%',
+  },
+  [theme.breakpoints.up('lg')]: {
+    marginLeft: theme.spacing(3),
+    width: '20%',
+  },
+  [theme.breakpoints.down('md')]: {
+    marginLeft: theme.spacing(3),
+    width: '70%',
   },
 }));
 
