@@ -3,6 +3,16 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
+const styles = theme => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down('xl')]: {
+      width:'100%'
+  },
+  [theme.breakpoints.up('lg')]: {
+    width:'100%'
+  },
+});
+
 export default function ColorTabs() {
   const [value, setValue] = React.useState('one');
 
@@ -11,15 +21,18 @@ export default function ColorTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' }} >
       <Tabs
+      centered
         value={value}
         onChange={handleChange}
         variant="scrollable"
         textColor="secondary"
-        scrollButtons="auto"
+        scrollButtons
         indicatorColor="secondary"
         aria-label="scrollable auto tabs example"
+        sx={styles}
+        
       >
         <Tab value="one" label="Electronics" />
         <Tab value="two" label="Home and Garden" />
@@ -28,7 +41,6 @@ export default function ColorTabs() {
         <Tab value="five" label="Sports and Outdoors" />
         <Tab value="six" label="Health and Beauty" />
         <Tab value="seven" label="Pets" />
-        <Tab value="eight" label="More" />
       </Tabs>
     </Box>
   );

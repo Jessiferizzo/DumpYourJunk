@@ -4,6 +4,10 @@ import LoginForm from './components/Login';
 import About from './components/About';
 import Checkout from './components/Checkout/Checkout';
 import PrimarySearchAppBar from './components/Nav';
+import SignUp from './components/Singup';
+
+
+
 
 
 function App() {
@@ -15,6 +19,9 @@ function App() {
         <About></About>
         <LoginForm></LoginForm>
       </main>
+      <section>
+        <SignUp></SignUp>
+      </section>
       <section>
         <Album></Album>
       </section>

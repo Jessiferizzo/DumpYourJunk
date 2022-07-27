@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,13 +7,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import BasicModal from '../ItemModal';
 
 function Copyright() {
   return (
@@ -29,7 +28,7 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9,];
 
 const theme = createTheme();
 
@@ -62,20 +61,12 @@ export default function Album() {
               color="text.primary"
               gutterBottom
             >
-              Clothes, Shoes, Accessories
+              Placeholder for categories
             </Typography>
             <Typography variant="h6" align="center" color="text.secondary" paragraph>
              Like a garage sale but online!
             </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
-            </Stack>
+
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -90,22 +81,21 @@ export default function Album() {
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                      pt: '30%',
                     }}
                     image="https://source.unsplash.com/random"
                     alt="random"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Classic Tee
+                      Placeholder for items name
                     </Typography>
                     <Typography>
-                      Gently Used $15 OBO
+                      Placeholder for type and $
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Make Offer</Button>
-                    <Button size="small">Ask</Button>
+                    <BasicModal></BasicModal>
                   </CardActions>
                 </Card>
               </Grid>
