@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const productSchema = new Schema({
   productname: {
@@ -19,13 +18,25 @@ const productSchema = new Schema({
     required: true,
     min: 0.99
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: timestamp => dateFormat(timestamp)
+  },
+  username: {
+    type: String,
     required: true
+  },
+  category: {
+    type: String,
   }
+  // category: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Category',
+  //   required: true
+  // }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Product = model('Product', productSchema);
 
 module.exports = Product;
