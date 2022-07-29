@@ -11,13 +11,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CardActionArea } from '@mui/material';
+import { Badge, CardActionArea } from '@mui/material';
 import About from '../About/index';
 
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import SearchBar from '../SearchBar';
 import Nav from '../Nav'
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 
@@ -36,27 +38,37 @@ export default function Album() {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-    display:'flex'
-};
+    display: 'flex'
+  };
 
-const [open, setOpen] = React.useState(false);
-const handleOpen = () => setOpen(true);
-const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+
+      <AppBar position="Relative">
         <Toolbar>
+          {/* Icon can be changed to homepage*/}
           <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" >
             Album layout
           </Typography>
-        <SearchBar></SearchBar>
-        <Nav></Nav>
+          {/* Need to add categories in the Search bar */}
+          <SearchBar></SearchBar>
+          {/* Nav is the login/logout toggle */}
+          <Nav></Nav>
+          {/* Badge is currently set to a specific number
+        need to link it to our cart page */}
+          <Badge badgeContent={4}>
+            <ShoppingCartIcon></ShoppingCartIcon>
+          </Badge>
         </Toolbar>
+        <About></About>
       </AppBar>
-      <About></About>
+
       <main>
         {/* Hero unit */}
         <Box
@@ -77,7 +89,7 @@ const handleClose = () => setOpen(false);
               Placeholder for categories
             </Typography>
             <Typography variant="h6" align="center" color="text.secondary" paragraph>
-             Like a garage sale but online!
+              Like a garage sale but online!
             </Typography>
 
           </Container>
@@ -92,26 +104,26 @@ const handleClose = () => setOpen(false);
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardActionArea>
-                  <CardMedia
-                    onClick={handleOpen}
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '0%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Placeholder for items name
-                    </Typography>
-                    <Typography>
-                      Placeholder for type and $
-                    </Typography>
-                  </CardContent>
-                  <CardContent></CardContent>
-                  <Button size="large">Add to cart</Button>
+                    <CardMedia
+                      onClick={handleOpen}
+                      component="img"
+                      sx={{
+                        // 16:9
+                        pt: '0%',
+                      }}
+                      image="https://source.unsplash.com/random"
+                      alt="random"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Placeholder for items name
+                      </Typography>
+                      <Typography>
+                        Placeholder for type and $
+                      </Typography>
+                    </CardContent>
+                    <CardContent></CardContent>
+                    <Button size="large">Add to cart</Button>
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -135,35 +147,37 @@ const handleClose = () => setOpen(false);
       </Box>
       {/* End footer */}
 
+
+      {/* Modal pops up to have enlared selection*/}
       <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <div >
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Placeholder for items name
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Placeholder for type and $
-                    </Typography>
-                    <grid>
-                    <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '0%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                    </grid>
-                    </div></Box>
-            </Modal>
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div >
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Placeholder for items name
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Placeholder for type and $
+            </Typography>
+            <grid>
+              <CardMedia
+                component="img"
+                sx={{
+                  // 16:9
+                  pt: '0%',
+                }}
+                image="https://source.unsplash.com/random"
+                alt="random"
+              />
+            </grid>
+          </div></Box>
+      </Modal>
     </ThemeProvider>
 
-    
+
   );
 }

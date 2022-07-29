@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -51,24 +49,6 @@ export default function LoginForm() {
                                 margin="normal"
                                 required
                                 fullWidth
-                                id="first-name"
-                                label="First Name"
-                                name="first-name"
-                                autoFocus
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="last-name"
-                                label="Last Name"
-                                name="last-name"
-                                autoFocus
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
                                 id="email"
                                 label="Email Address"
                                 name="email"
@@ -85,10 +65,6 @@ export default function LoginForm() {
                                 id="password"
                                 autoComplete="current-password"
                             />
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="Remember me"
-                            />
                             <Button
                                 type="submit"
                                 fullWidth
@@ -98,9 +74,9 @@ export default function LoginForm() {
                                 Sign In
                             </Button>
                             <Grid container>
-                                <Grid item>Have an account?
+                                <Grid item>
                                     <Link to="/Login">
-                                         Sign In
+                                        Have an account? Sign In
                                     </Link>
                                 </Grid>
                             </Grid>

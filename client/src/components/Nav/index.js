@@ -28,8 +28,6 @@ export default function MenuAppBar() {
 
   return (
     <Box>
-
-      
         <Toolbar>
         <FormGroup>
         <FormControlLabel
