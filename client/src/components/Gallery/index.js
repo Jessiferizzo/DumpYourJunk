@@ -2,7 +2,6 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,39 +10,65 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import BasicModal from '../ItemModal';
+import { Badge, CardActionArea } from '@mui/material';
+import About from '../About/index';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import SearchBar from '../SearchBar';
+import Nav from '../Nav'
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9,];
 
 const theme = createTheme();
 
 export default function Album() {
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display: 'flex'
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+
+      <AppBar position="Relative">
         <Toolbar>
+          {/* Icon can be changed to homepage*/}
           <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" >
             Album layout
           </Typography>
+          {/* Need to add categories in the Search bar */}
+          <SearchBar></SearchBar>
+          {/* Nav is the login/logout toggle */}
+          <Nav></Nav>
+          {/* Badge is currently set to a specific number
+        need to link it to our cart page */}
+          <Badge badgeContent={4}>
+            <ShoppingCartIcon></ShoppingCartIcon>
+          </Badge>
         </Toolbar>
+        <About></About>
       </AppBar>
+
       <main>
         {/* Hero unit */}
         <Box
@@ -64,39 +89,42 @@ export default function Album() {
               Placeholder for categories
             </Typography>
             <Typography variant="h6" align="center" color="text.secondary" paragraph>
-             Like a garage sale but online!
+              Like a garage sale but online!
             </Typography>
 
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
+                <link></link>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      // 16:9
-                      pt: '30%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Placeholder for items name
-                    </Typography>
-                    <Typography>
-                      Placeholder for type and $
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <BasicModal></BasicModal>
-                  </CardActions>
+                  <CardActionArea>
+                    <CardMedia
+                      onClick={handleOpen}
+                      component="img"
+                      sx={{
+                        // 16:9
+                        pt: '0%',
+                      }}
+                      image="https://source.unsplash.com/random"
+                      alt="random"
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Placeholder for items name
+                      </Typography>
+                      <Typography>
+                        Placeholder for type and $
+                      </Typography>
+                    </CardContent>
+                    <CardContent></CardContent>
+                    <Button size="large">Add to cart</Button>
+                  </CardActionArea>
                 </Card>
               </Grid>
             ))}
@@ -116,9 +144,40 @@ export default function Album() {
         >
           Shop Local, Shop Smart.
         </Typography>
-        <Copyright />
       </Box>
       {/* End footer */}
+
+
+      {/* Modal pops up to have enlared selection*/}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div >
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Placeholder for items name
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Placeholder for type and $
+            </Typography>
+            <grid>
+              <CardMedia
+                component="img"
+                sx={{
+                  // 16:9
+                  pt: '0%',
+                }}
+                image="https://source.unsplash.com/random"
+                alt="random"
+              />
+            </grid>
+          </div></Box>
+      </Modal>
     </ThemeProvider>
+
+
   );
 }
