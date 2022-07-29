@@ -25,7 +25,7 @@ export default function BasicModal() {
 
     return (
         <div>
-            <Button size="small" onClick={handleOpen}>Make Offer</Button>
+            <Button size="small" onClick={handleOpen}>Add to cart</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -45,7 +45,7 @@ export default function BasicModal() {
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '50%',
+                      pt: '0%',
                     }}
                     image="https://source.unsplash.com/random"
                     alt="random"

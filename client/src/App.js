@@ -5,6 +5,11 @@ import About from './components/About';
 import Checkout from './components/Checkout/Checkout';
 import PrimarySearchAppBar from './components/Nav';
 import SignUp from './components/Singup';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 
@@ -15,19 +20,24 @@ function App() {
   return (
     <div>
       <main>
-      <PrimarySearchAppBar></PrimarySearchAppBar>
-        <About></About>
-        <LoginForm></LoginForm>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Album/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/LoginForm' element={<LoginForm/>} />
+          </Routes>
+          <Routes>
+            <Route path='/SignUp' element={<SignUp/>} />
+          </Routes>
+          <Routes>
+            <Route path='/Checkout' element={<Checkout/>} />
+          </Routes>
+          <Routes>
+            <Route path='/Search' element={<PrimarySearchAppBar/>} />
+          </Routes>
+        </BrowserRouter>
       </main>
-      <section>
-        <SignUp></SignUp>
-      </section>
-      <section>
-        <Album></Album>
-      </section>
-      <section>
-        <Checkout></Checkout>
-      </section>
     </div>
   );
 }
