@@ -25,7 +25,6 @@ export default function BasicModal() {
 
     return (
         <div>
-            <Button size="small" onClick={handleOpen}>Add to cart</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

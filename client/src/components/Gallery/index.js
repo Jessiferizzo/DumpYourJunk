@@ -10,30 +10,39 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import BasicModal from '../ItemModal';
 import { CardActionArea } from '@mui/material';
+import About from '../About/index';
+
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import SearchBar from '../SearchBar';
+import Nav from '../Nav'
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9,];
 
 const theme = createTheme();
 
 export default function Album() {
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    display:'flex'
+};
+
+const [open, setOpen] = React.useState(false);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -43,8 +52,11 @@ export default function Album() {
           <Typography variant="h6" color="inherit" noWrap>
             Album layout
           </Typography>
+        <SearchBar></SearchBar>
+        <Nav></Nav>
         </Toolbar>
       </AppBar>
+      <About></About>
       <main>
         {/* Hero unit */}
         <Box
@@ -81,6 +93,7 @@ export default function Album() {
                 >
                   <CardActionArea>
                   <CardMedia
+                    onClick={handleOpen}
                     component="img"
                     sx={{
                       // 16:9
@@ -98,8 +111,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardContent></CardContent>
-                  
-                    <BasicModal></BasicModal>
+                  <Button size="large">Add to cart</Button>
                   </CardActionArea>
                 </Card>
               </Grid>
@@ -120,9 +132,38 @@ export default function Album() {
         >
           Shop Local, Shop Smart.
         </Typography>
-        <Copyright />
       </Box>
       {/* End footer */}
+
+      <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <div >
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Placeholder for items name
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    Placeholder for type and $
+                    </Typography>
+                    <grid>
+                    <CardMedia
+                    component="img"
+                    sx={{
+                      // 16:9
+                      pt: '0%',
+                    }}
+                    image="https://source.unsplash.com/random"
+                    alt="random"
+                  />
+                    </grid>
+                    </div></Box>
+            </Modal>
     </ThemeProvider>
+
+    
   );
 }
