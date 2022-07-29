@@ -5,6 +5,7 @@ import About from './components/About';
 import Checkout from './components/Checkout/Checkout';
 import PrimarySearchAppBar from './components/Nav';
 import SignUp from './components/Singup';
+import CartForm from './components/CartForm';
 
 
 
@@ -27,6 +28,9 @@ function App() {
       </section>
       <section>
         <Checkout></Checkout>
+      </section>
+      <section>
+        <CartForm></CartForm>
       </section>
     </div>
   );
