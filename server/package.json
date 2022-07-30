@@ -2,7 +2,7 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
@@ -18,5 +18,8 @@
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

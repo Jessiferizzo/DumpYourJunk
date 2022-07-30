@@ -18,7 +18,6 @@ const ProductList = ({ products, title }) => {
             </p>
             <div className="card-body">
               <p>{product.productname}</p>
-              <img src={product.image} alt="prodImg"/>
               {/* <p>{product.image}</p> */}
               <p>{product.description}</p>
               <p>{product.category}</p>
