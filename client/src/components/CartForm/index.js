@@ -11,6 +11,14 @@ import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
+import About from '../About/index';
+
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Nav from '../Nav'
+import HomeIcon from '@mui/icons-material/Home';
+import { Link } from "react-router-dom";
+
 
 function generate(element) {
   return [0, 1, 2].map((value) =>
@@ -26,6 +34,21 @@ export default function InteractiveList() {
   const [secondary] = React.useState(false);
 
   return (
+    <div>
+      <AppBar position="Fixed">
+        <Toolbar>
+          {/* Icon can be changed to homepage*/}
+          <Link to="/Gallery">
+          <HomeIcon sx={{mr: 2}}></HomeIcon>
+          </Link>
+          {/* Nav is the login/logout toggle */}
+          <Nav></Nav>
+          {/* Badge is currently set to a specific number
+        need to link it to our cart page */}
+
+        </Toolbar>
+        <About></About>
+      </AppBar>
     <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
@@ -62,5 +85,6 @@ export default function InteractiveList() {
         </Grid>
         </Paper>
       </Container>
+      </div>
   
   )}

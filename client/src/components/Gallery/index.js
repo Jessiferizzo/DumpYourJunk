@@ -1,6 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
+import HomeIcon from '@mui/icons-material/Home';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -20,6 +20,7 @@ import SearchBar from '../SearchBar';
 import Nav from '../Nav'
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from "react-router-dom";
 
 
 
@@ -52,7 +53,9 @@ export default function Album() {
       <AppBar position="Relative">
         <Toolbar>
           {/* Icon can be changed to homepage*/}
-          <CameraIcon sx={{ mr: 2 }} />
+          <Link to="/Gallery">
+          <HomeIcon sx={{mr: 2}}></HomeIcon>
+          </Link>
           <Typography variant="h6" color="inherit" >
             Album layout
           </Typography>
@@ -63,7 +66,9 @@ export default function Album() {
           {/* Badge is currently set to a specific number
         need to link it to our cart page */}
           <Badge badgeContent={4}>
+            <Link to="/Cart">
             <ShoppingCartIcon></ShoppingCartIcon>
+            </Link>
           </Badge>
         </Toolbar>
         <About></About>

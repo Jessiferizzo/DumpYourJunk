@@ -28,7 +28,7 @@ function App() {
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Checkout' element={<Checkout />} />
             <Route path='/Search' element={<PrimarySearchAppBar />} />
-            <Route path='/cart' element={<InteractiveList />} />
+            <Route path='/Cart' element={<InteractiveList />} />
             <Route path="*" element={<Album />} />
           </Routes>
         </BrowserRouter>
