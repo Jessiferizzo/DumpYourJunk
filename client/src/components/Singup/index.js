@@ -8,10 +8,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from "react-router-dom";
 
-const theme = createTheme();
+
 
 export default function LoginForm() {
     const handleSubmit = (event) => {
@@ -24,7 +23,7 @@ export default function LoginForm() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
+        
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
 
@@ -38,7 +37,7 @@ export default function LoginForm() {
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                        <Avatar sx={{ m: 1, bgcolor: 'secondary.dark' }}>
                             <LockOpenIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
@@ -98,6 +97,5 @@ export default function LoginForm() {
                     }}
                 />
             </Grid>
-        </ThemeProvider>
     );
 }

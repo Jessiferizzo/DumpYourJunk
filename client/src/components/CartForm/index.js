@@ -18,6 +18,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Nav from '../Nav'
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
+import { Box } from '@mui/system';
 
 
 function generate(element) {
@@ -34,12 +35,15 @@ export default function InteractiveList() {
   const [secondary] = React.useState(false);
 
   return (
-    <div>
+    <Box>
       <AppBar position="Fixed">
         <Toolbar>
-          {/* Icon can be changed to homepage*/}
           <Link to="/Gallery">
-          <HomeIcon sx={{mr: 2}}></HomeIcon>
+          <Avatar sx={{ m: 2, bgcolor:"#fff" }}>
+              <IconButton color="primary">
+              <HomeIcon ></HomeIcon>
+              </IconButton>
+            </Avatar>
           </Link>
           {/* Nav is the login/logout toggle */}
           <Nav></Nav>
@@ -49,17 +53,17 @@ export default function InteractiveList() {
         </Toolbar>
         <About></About>
       </AppBar>
-    <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
+      <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Cart
           </Typography>
-      
-        <Grid item xs={12} md={6}>
-          <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-            Avatar with text and icon
-          </Typography>
-        
+
+          <Grid item xs={12} md={6}>
+            <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+              Avatar with text and icon
+            </Typography>
+
             <List dense={dense}>
               {generate(
                 <ListItem
@@ -81,10 +85,11 @@ export default function InteractiveList() {
                 </ListItem>,
               )}
             </List>
-         
-        </Grid>
+
+          </Grid>
         </Paper>
       </Container>
-      </div>
-  
-  )}
+    </Box>
+
+  )
+}

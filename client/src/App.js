@@ -12,13 +12,33 @@ import {
   Route,
 } from "react-router-dom";
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '##1976d2',
+      main: '#42a5f5',
+      dark: '#1565c0',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#9c27b0',
+      main: '#ba68c8',
+      dark: '#7b1fa2',
+      contrastText: '#000',
+    },
+  }
+  
+});
 
 
 
 function App() {
 
   return (
+    <ThemeProvider theme={theme}>
     <div>
       <main>
         <BrowserRouter>
@@ -34,6 +54,7 @@ function App() {
         </BrowserRouter>
       </main>
     </div>
+    </ThemeProvider>
   );
 }
 

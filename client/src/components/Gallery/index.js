@@ -11,7 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CardActionArea } from '@mui/material';
+import { Avatar, CardActionArea, IconButton } from '@mui/material';
 import About from '../About/index';
 
 import Modal from '@mui/material/Modal';
@@ -40,9 +40,9 @@ export default function Album() {
     boxShadow: 24,
     p: 4,
     display: 'flex',
-    maxWidth:'100vh',
-    maxheight:'100vh',
-    radius:''
+    maxWidth: '100vh',
+    maxheight: '100vh',
+    radius: ''
   };
 
   const [open, setOpen] = React.useState(false);
@@ -57,7 +57,11 @@ export default function Album() {
         <Toolbar>
           {/* Icon can be changed to homepage*/}
           <Link to="/Gallery">
-          <HomeIcon sx={{mr: 2}}></HomeIcon>
+            <Avatar sx={{ m: 2, bgcolor:"#fff" }}>
+              <IconButton color="primary">
+              <HomeIcon ></HomeIcon>
+              </IconButton>
+            </Avatar>
           </Link>
           <Typography variant="h6" color="inherit" >
             Album layout
@@ -153,33 +157,33 @@ export default function Album() {
 
       {/* Modal pops up to have enlared selection*/}
       <Card>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div >
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Placeholder for items name
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Placeholder for type and $
-            </Typography>
-            <grid>
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  pt: '0%',
-                }}
-                image="https://source.unsplash.com/random"
-                alt="random"
-              />
-            </grid>
-          </div></Box>
-      </Modal>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div >
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Placeholder for items name
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Placeholder for type and $
+              </Typography>
+              <grid>
+                <CardMedia
+                  component="img"
+                  sx={{
+                    // 16:9
+                    pt: '0%',
+                  }}
+                  image="https://source.unsplash.com/random"
+                  alt="random"
+                />
+              </grid>
+            </div></Box>
+        </Modal>
       </Card>
     </ThemeProvider>
   );

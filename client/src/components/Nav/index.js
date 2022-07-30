@@ -12,6 +12,7 @@ import Menu from '@mui/material/Menu';
 import { Link } from "react-router-dom";
 import { Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { end } from '@popperjs/core';
 
 
 export default function MenuAppBar() {
@@ -32,7 +33,7 @@ export default function MenuAppBar() {
 
   return (
     <Box>
-      <Toolbar>
+      <Toolbar sx={{ display: 'flex' }}>
         <FormGroup>
           <FormControlLabel
             control={
@@ -40,6 +41,7 @@ export default function MenuAppBar() {
                 checked={auth}
                 onChange={handleChange}
                 aria-label="login switch"
+                color='secondary'
               />
             }
             label={auth ? 'Logout' : 'Login'}
@@ -77,11 +79,15 @@ export default function MenuAppBar() {
             </Menu>
           </div>
         )}
-        <Badge badgeContent={4}>
+        <Box sx={{ flex: end }}>
+        <Badge badgeContent={4} sx={{mr: 1, ml:2}}>
           <Link to="/Cart">
-            <ShoppingCartIcon></ShoppingCartIcon>
+            <IconButton>
+              <ShoppingCartIcon ></ShoppingCartIcon>
+            </IconButton>
           </Link>
         </Badge>
+        </Box>
       </Toolbar>
 
     </Box>
