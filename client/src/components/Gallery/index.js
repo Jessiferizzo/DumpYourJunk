@@ -11,7 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Badge, CardActionArea } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 import About from '../About/index';
 
 import Modal from '@mui/material/Modal';
@@ -19,8 +19,8 @@ import Button from '@mui/material/Button';
 import SearchBar from '../SearchBar';
 import Nav from '../Nav'
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from "react-router-dom";
+
 
 
 
@@ -39,7 +39,9 @@ export default function Album() {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-    display: 'flex'
+    display: 'flex',
+    maxWidth:'100vh',
+    maxheight:'100vh'
   };
 
   const [open, setOpen] = React.useState(false);
@@ -65,11 +67,6 @@ export default function Album() {
           <Nav></Nav>
           {/* Badge is currently set to a specific number
         need to link it to our cart page */}
-          <Badge badgeContent={4}>
-            <Link to="/Cart">
-            <ShoppingCartIcon></ShoppingCartIcon>
-            </Link>
-          </Badge>
         </Toolbar>
         <About></About>
       </AppBar>
