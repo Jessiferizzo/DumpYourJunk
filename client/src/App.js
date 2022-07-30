@@ -5,6 +5,7 @@ import LoginForm from './components/Login';
 import Checkout from './components/Checkout/Checkout';
 import PrimarySearchAppBar from './components/Nav';
 import SignUp from './components/Singup';
+import InteractiveList from './components/CartForm'
 import {
   BrowserRouter,
   Routes,
@@ -27,6 +28,7 @@ function App() {
             <Route path='/SignUp' element={<SignUp />} />
             <Route path='/Checkout' element={<Checkout />} />
             <Route path='/Search' element={<PrimarySearchAppBar />} />
+            <Route path='/cart' element={<InteractiveList />} />
             <Route path="*" element={<Album />} />
           </Routes>
         </BrowserRouter>
