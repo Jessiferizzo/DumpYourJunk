@@ -16,9 +16,22 @@ const typeDefs = gql`
     username: String
     email: String
   }
+  type Cart {
+       _id: ID
+       product: [Product]
+  }
   type Query {
     products: [Product]
     users: [User]
+    cart: [Cart]
+  }
+  type Mutation {
+    addProductToCart(product_id: ID, cart_id: ID):Cart
+
+    deleteProductToCart(product_id: ID, cart_id: ID):Cart
+    
+    emptyCart(product_id:ID):Cart
+      
   }
 `;
 

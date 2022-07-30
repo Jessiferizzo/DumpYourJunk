@@ -1,12 +1,12 @@
 const faker = require("faker");
 
 const db = require("../../config/connection");
-const { Product, User } = require("../../models");
+const { Product, User, Cart } = require("../../models");
 
 db.once("open", async () => {
   await User.deleteMany({});
   await Product.deleteMany({});
-
+  await Cart.deleteMany({});
   // create user data
   const userData = [];
 
