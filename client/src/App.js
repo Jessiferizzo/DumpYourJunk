@@ -1,7 +1,7 @@
 import React from 'react';
 import Album from './components/Gallery';
 import LoginForm from './components/Login';
-import About from './components/About';
+
 import Checkout from './components/Checkout/Checkout';
 import PrimarySearchAppBar from './components/Nav';
 import SignUp from './components/Singup';
@@ -16,9 +16,16 @@ function App() {
   return (
     <div>
       <main>
-      <PrimarySearchAppBar></PrimarySearchAppBar>
-        <About></About>
-        <LoginForm></LoginForm>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<Album />} />
+            <Route path='/Login' element={<LoginForm />} />
+            <Route path='/SignUp' element={<SignUp />} />
+            <Route path='/Checkout' element={<Checkout />} />
+            <Route path='/Search' element={<PrimarySearchAppBar />} />
+            <Route path="*" element={<Album />} />
+          </Routes>
+        </BrowserRouter>
       </main>
       <section>
         <SignUp></SignUp>
