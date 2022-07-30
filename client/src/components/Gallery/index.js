@@ -41,7 +41,8 @@ export default function Album() {
     p: 4,
     display: 'flex',
     maxWidth:'100vh',
-    maxheight:'100vh'
+    maxheight:'100vh',
+    radius:''
   };
 
   const [open, setOpen] = React.useState(false);
@@ -151,6 +152,7 @@ export default function Album() {
 
 
       {/* Modal pops up to have enlared selection*/}
+      <Card>
       <Modal
         open={open}
         onClose={handleClose}
@@ -178,8 +180,7 @@ export default function Album() {
             </grid>
           </div></Box>
       </Modal>
+      </Card>
     </ThemeProvider>
-
-
   );
 }
