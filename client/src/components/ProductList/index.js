@@ -9,16 +9,16 @@ const ProductList = ({ products, title }) => {
   return (
     <div>
       <h3>{title}</h3>
-      {products &&
+      <div className={'card-list'}>
+        {products &&
         products.map((product) => (
           <div key={product._id} className="card mb-3">
-
             <p className="card-header">
               <Link
                 to={`/profile/${product.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
-              >
+                >
                 {product.username}
                 <br />
                 
@@ -26,17 +26,17 @@ const ProductList = ({ products, title }) => {
               Created on {product.createdAt}
             </p>
 
+              <Link to={`/product/${product._id}`}>
+              <img src={product.productname} alt='card' className="card-image"/>
             <div className="card-body">
-            <Link to={`/product/${product._id}`}>
-              <p>{product.productname}</p>
-              {/* <p>{product.image}</p> */}
-              <p>{product.description}</p>
+              {/*  <p>{product.description}</p> */}
               <p>{product.category}</p>
               <p>${product.price}</p>
-              </Link>
             </div>
+              </Link>
           </div>
         ))}
+      </div>
     </div>
   );
 };

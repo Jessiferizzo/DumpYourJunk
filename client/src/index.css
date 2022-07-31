@@ -140,6 +140,12 @@ nav a:hover {
   color: var(--dark);
 }
 
+.card-list {
+ display: grid;
+ grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+ grid-gap: 15px;
+}
+
 .card-header {
   color: var(--secondary);
   margin: 0;
@@ -151,6 +157,12 @@ nav a:hover {
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 /* FORM */
