@@ -20,10 +20,15 @@ const typeDefs = gql`
        _id: ID
        product: [Product]
   }
+  type Auth {
+    token: ID
+    user: User
+}
   type Query {
     products: [Product]
     users: [User]
     cart: [Cart]
+    checkout(product:[ID]!): Checkout
   }
   type Mutation {
     addProductToCart(product_id: ID, cart_id: ID):Cart
@@ -31,8 +36,19 @@ const typeDefs = gql`
     deleteProductToCart(product_id: ID, cart_id: ID):Cart
     
     emptyCart(product_id:ID):Cart
+
+    increaseCartItem(product_id: ID):Cart
+
+    decreaseCartItem(product_id: ID):Cart
+
+    createCheckoutSession( cart_id: ID): CheckoutSession
       
   }
+  type CheckoutSession {
+    cart_id: Cart
+  }
+
+
 `;
 
 // export the typeDefs
