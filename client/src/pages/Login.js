@@ -98,7 +98,8 @@ const Login = (props) => {
               fullWidth
               autoComplete="current-password"
               autoFocus
-              label='******'
+              label='Password'
+              placeholder='******'
               name='password'
               type='password'
               id='password'

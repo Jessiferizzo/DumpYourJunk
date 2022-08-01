@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import Navigation from "../Nav";
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2,),
@@ -66,66 +67,71 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
   };
 
   return (
-    <div  sx={{ width: '100%' }}>
-    <AppBar position="relative">
-      {/* className=" justify-space-between-lg  "*/}
-      <Toolbar  className=" justify-space-between-lg  ">
-        <Link to="/">
-          <Avatar sx={{ m: 2, bgcolor: "#fff" }}>
-            <IconButton color="primary">
-              <HomeIcon></HomeIcon>
-            </IconButton>
-          </Avatar>
-        </Link>
-        <Typography variant="h6" color="inherit">
-          Sell your Junk
-        </Typography>
-        {Auth.loggedIn() ? (
-            <>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase
-                    type="text"
-                    value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
-                    className="search-input"
-                    placeholder="Search…"
-                    inputProps={{ 'aria-label': 'search' }}
-                  />
-                </Search>
-              </Typography>
+    <div sx={{ width: '100%' }}>
+      <AppBar position="relative">
+        <Container maxWidth="xl">
+          {/* className=" justify-space-between-lg  "*/}
+          <Toolbar className=" justify-space-between-lg  ">
+            <Link to="/">
+              <Avatar sx={{ m: 2, bgcolor: "#fff" }}>
+                <IconButton color="primary">
+                  <HomeIcon></HomeIcon>
+                </IconButton>
+              </Avatar>
+            </Link>
+            <Typography variant="h6" color="inherit">
+              Sell your Junk
+            </Typography>
+            {Auth.loggedIn() && (
+              <>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  <Search>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase
+                      type="text"
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      className="search-input"
+                      placeholder="Search…"
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                  </Search>
+                </Typography>
 
-            </>
-          ) : (
+              </>
+            )}
+            <nav className="text-center nav-links">
+              {Auth.loggedIn() ? (
+                <>
+                  <Link to="/profile">Profile</Link>
+                  <a href="/" onClick={logout}>
+                    Logout
+                  </a>
+                  <Box className="cart">
+                    <span className="cart-no">{cartProducts.length}</span>
+                    <ShoppingCartIcon ></ShoppingCartIcon>
+                  </Box>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/signup">Signup</Link>
+                </>
+              )}
+            </nav>
+
+          </Toolbar>
+        </Container>
+        <Container>
+          {Auth.loggedIn() && (
             <>
-            
+              <Navigation></Navigation>
             </>
           )}
-        <nav className=" nav-links">
-          {Auth.loggedIn ? (
-            <>
-              <Link to="/profile">Profile</Link>
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
-              <Box className="cart">
-                <span className="cart-no">{cartProducts.length}</span>
-                <ShoppingCartIcon ></ShoppingCartIcon>
-              </Box>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </>
-          )}
-        </nav>
-
-      </Toolbar>
-    </AppBar>
+        </Container>
+      </AppBar>
     </div>
   );
 };

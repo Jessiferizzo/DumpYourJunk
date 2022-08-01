@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
+
 const Home = ({ searchValue, onAddToCart }) => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -24,6 +25,7 @@ const Home = ({ searchValue, onAddToCart }) => {
   }, [searchValue, products])
 
   return (
+    
     <main sx={{mt:6}}>
       <Box
         sx={{
@@ -32,7 +34,7 @@ const Home = ({ searchValue, onAddToCart }) => {
           pb: 6,
         }}
       >
-        <Container maxWidth="sm">
+        <Container maxWidth="xl">
           <Typography
             component="h1"
             variant="h2"
