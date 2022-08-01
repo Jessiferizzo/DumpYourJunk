@@ -23,3 +23,43 @@ export const ADD_USER = gql`
     }
   }
 `;
+export const ADD_PRODUCT = gql`
+  mutation addProduct($productname: String!, $description: String!, $image: String!, $price: Float) {
+    addProduct(productname: $productname, price: $price, image: $image, description: $description) {
+      
+      Product {
+        _id
+        productname
+        description
+        image
+        price
+      }
+    }
+  }
+`;
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct($productname: String!, $description: String!, $image: String!, $price: Float) {
+    deleteProduct(productname: $productname, price: $price, image: $image, description: $description) {
+      
+      Product {
+        _id
+        productname
+        description
+        image
+        price
+      }
+    }
+  }
+`;
+
+export const EMPTY_CART = gql`
+  mutation emptyCart($product_id: ID!) {
+    emptyCart(product_id: $product_id) {
+      
+      Cart {
+        _id
+      }
+    }
+  }
+`;

@@ -16,10 +16,15 @@
     "express": "^4.18.1",
     "faker": "^4.1.0",
     "graphql": "^16.5.0",
+<<<<<<< HEAD
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
+=======
+    "mongoose": "^6.4.6",
+    "stripe": "^9.16.0"
+>>>>>>> b3c94fc15f6404da6826eb63e389e468b5e39feb
   }
 }

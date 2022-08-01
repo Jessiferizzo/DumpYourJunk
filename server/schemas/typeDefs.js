@@ -12,6 +12,7 @@ const typeDefs = gql`
     image: String
     price: Float
     category: String
+    quantity: Int
   }
   type User {
     _id: ID
@@ -27,6 +28,14 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  type Cart {
+       _id: ID
+       product: [Product]
+  }
+  type Auth {
+    token: ID
+    user: User
+}
   type Query {
     me: User
     users: [User]
@@ -40,7 +49,15 @@ const typeDefs = gql`
     addProduct(productname: String!, description: String!, image: String!, price: Float): Product
     deleteProduct(productname: String!, description: String!, image: String!, price: Float): Product
     emptyCart(product_id:ID):Cart
+    createCheckoutSession( cart_id: ID): CheckoutSession
   }
+      
+  }
+  type CheckoutSession {
+    cart_id: Cart
+  }
+
+
 `;
 
 // export the typeDefs

@@ -1,4 +1,4 @@
-const { Product, User } = require("../models");
+const { Product, User, Cart, Checkout } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -23,6 +23,9 @@ const resolvers = {
 
     product: async (parent, { _id }) => {
       return Product.findOne({ _id });
+    },
+    cart: async () => {
+      return Cart.find().sort({ createdAt: -1 });
     },
 
     // get all users
@@ -77,7 +80,7 @@ const resolvers = {
     }, 
     deleteProduct: async (parent, args, context) => {
       if (context.user) {
-        const product = await Product.deleteProduct({ ...args, username: context.user.username });
+        const product = await Product.deleteOne({ ...args, username: context.user.username });
     
         await User.findByIdAndDelete(
           { _id: context.user._id },
@@ -90,6 +93,12 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     }
   },
+ 
+    emptyCart: async (parent, { cart_id }) => {
+
+      return await Cart.deleteOne({ _id: { cart_id } });
+
+    },
 };
 
 module.exports = resolvers;
