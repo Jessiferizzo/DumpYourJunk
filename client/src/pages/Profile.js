@@ -10,7 +10,7 @@ import { Button, Card, Stack, TextField } from "@mui/material";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 const Profile = () => {
-
+  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

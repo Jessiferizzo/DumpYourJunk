@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart"
+import Nav from "./components/Nav"
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
