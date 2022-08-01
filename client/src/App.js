@@ -52,33 +52,30 @@ const theme = createTheme({
       contrastText: '#000',
     },
   }
-  
+
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-       <ThemeProvider theme={theme}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
-              <Route path="/product/:id" element={<SingleProduct />} />
 
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-          </div>
+      <ThemeProvider theme={theme}>
+        <Router>  
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/profile">
+              <Route path=":username" element={<Profile />} />
+              <Route path="" element={<Profile />} />
+            </Route>
+            <Route path="/product/:id" element={<SingleProduct />} />
+
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
           <Footer />
-        </div>
-      </Router>
+        </Router>
       </ThemeProvider>
     </ApolloProvider>
   );
