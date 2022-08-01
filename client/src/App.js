@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ApolloProvider,
   ApolloClient,
@@ -35,22 +35,34 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
+  const[searchValue,setSearchValue]= useState('')
+  const[cartProducts,setCartProducts]= useState([])
+
+const  onAddToCart =({id})=>{
+  console.log({clicked:'kkk'})
+  if (!cartProducts.includes(id)){
+    setCartProducts([...cartProducts, id])
+  }
+}
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+          <Header searchValue={searchValue} setSearchValue={setSearchValue} cartProducts={cartProducts} />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home searchValue={searchValue} onAddToCart={onAddToCart} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile">
                 <Route path=":username" element={<Profile />} />
                 <Route path="" element={<Profile />} />
               </Route>
-              <Route path="/product/:id" element={<SingleProduct />} />
+              <Route path="/product/:id" element={<SingleProduct onAddToCart={onAddToCart} />} />
 
               <Route path="*" element={<NoMatch />} />
             </Routes>

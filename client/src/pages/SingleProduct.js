@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCT } from "../utils/queries";
 
-const SingleProduct = (props) => {
+const SingleProduct = ({onAddToCart}) => {
   const { id: productId } = useParams();
 
   const { loading, data } = useQuery(QUERY_PRODUCT, {
@@ -27,10 +27,14 @@ const SingleProduct = (props) => {
         </p>
         <div className="card-body">
           <p>{product.productname}</p>
+          <div  className="card-image">
+              <img src={product.image} alt='card'/>
+            </div>
           <p>{product.description}</p>
           <p>{product.category}</p>
           <p>${product.price}</p>
-        </div>
+          <button onClick={()=>onAddToCart({id:product._id})} className="card-button">ADD</button>
+         </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductList = ({ products, title }) => {
+const ProductList = ({ products, title, onAddToCart}) => {
   if (!products.length) {
     return <h3> There is no product to display </h3>;
   }
@@ -27,13 +27,17 @@ const ProductList = ({ products, title }) => {
             </p>
 
               <Link to={`/product/${product._id}`}>
-              <img src={product.productname} alt='card' className="card-image"/>
+              <div  className="card-image">
+                <img src={product.image} alt='card'/>
+              </div>
             <div className="card-body">
               {/*  <p>{product.description}</p> */}
               <p>{product.category}</p>
               <p>${product.price}</p>
+
             </div>
               </Link>
+              <button onClick={()=>onAddToCart({id:product._id})} className="card-button">ADD</button>
           </div>
         ))}
       </div>
