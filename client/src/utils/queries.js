@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { Cart } from '../../../server/models';
 
 export const QUERY_PRODUCTS = gql`
   query products($username: String) {
@@ -77,6 +78,15 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
+    }
+  }
+`;
+
+
+export const QUERY_CART = gql`
+  query cart ($_id: ID!) {
+    cart(_id: $ID) {
+      cart_id
     }
   }
 `;
