@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+import { Avatar, IconButton  } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 
 const Header = () => {
   const logout = (event) => {
@@ -9,11 +14,18 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <AppBar  position="Relative" >
+      <Toolbar className=" justify-space-between-lg  ">
         <Link to="/">
-          <h1>Sell Your Junk</h1>
+          <Avatar sx={{ m: 2, bgcolor:"#fff" }}>
+          <IconButton color="primary"> 
+            <HomeIcon></HomeIcon>
+          </IconButton>
+          </Avatar>
         </Link>
+        <Typography  variant="h6" color="inherit">
+          Sell your Junk
+        </Typography>
 
         <nav className="text-center">
           {Auth.loggedIn() ? (
@@ -30,8 +42,8 @@ const Header = () => {
             </>
           )}
         </nav>
-      </div>
-    </header>
+      </Toolbar>
+    </AppBar>
   );
 };
 
