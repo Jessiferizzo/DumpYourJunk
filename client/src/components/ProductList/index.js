@@ -7,6 +7,28 @@ import { DELETE_PRODUCT } from "../../utils/actions";
 
 const [state, dispatch] = useStoreContext();
 
+
+const { cart } = state;
+
+const addProduct = () => {
+  // find the cart item with the matching id
+  const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+
+  // if there was a match, call UPDATE with a new purchase quantity
+  if (itemInCart) {
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      _id: _id,
+      purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+    });
+  } else {
+    dispatch({
+      type: ADD_PRODUCT,
+      product: { ...product, purchaseQuantity: 1 }
+    });
+  }
+};
+
 const addProduct = () => {
   dispatch({
     type: ADD_PRODUCT,

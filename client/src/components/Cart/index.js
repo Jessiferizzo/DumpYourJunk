@@ -5,6 +5,15 @@ import './style.css';
 // import { useStoreContext } from '../../utils/GlobalState';
 // import { TOGGLE_CART } from '../../utils/actions';
 
+function calculateTotal() {
+  let sum = 0;
+  state.cart.forEach(item => {
+    sum += item.price * item.purchaseQuantity;
+  });
+  return sum.toFixed(2);
+}
+
+
 const Cart = () => {
   return (
     <div className="cart">
