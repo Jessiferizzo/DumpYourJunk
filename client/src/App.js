@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ApolloProvider,
   ApolloClient,
@@ -56,21 +56,31 @@ const theme = createTheme({
 });
 
 function App() {
+  const [searchValue, setSearchValue] = useState('')
+  const [cartProducts, setCartProducts] = useState([])
+
+  const onAddToCart = ({ id }) => {
+    console.log({ clicked: 'kkk' })
+    if (!cartProducts.includes(id)) {
+      setCartProducts([...cartProducts, id])
+    }
+  }
+
   return (
     <ApolloProvider client={client}>
 
       <ThemeProvider theme={theme}>
-        <Router>  
-          <Header />
+        <Router>
+          <Header searchValue={searchValue} setSearchValue={setSearchValue} cartProducts={cartProducts} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home searchValue={searchValue} onAddToCart={onAddToCart} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile">
               <Route path=":username" element={<Profile />} />
               <Route path="" element={<Profile />} />
             </Route>
-            <Route path="/product/:id" element={<SingleProduct />} />
+            <Route path="/product/:id" element={<SingleProduct onAddToCart={onAddToCart} />} />
 
             <Route path="*" element={<NoMatch />} />
           </Routes>

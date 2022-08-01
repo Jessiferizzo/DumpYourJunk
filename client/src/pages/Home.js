@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import ProductList from "../components/ProductList";
 import Auth from "../utils/auth";
 
-const Home = () => {
+const Home = ({searchValue,onAddToCart})  => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
   const loggedIn = Auth.loggedIn();
+  const[filteredProducts,setFilteredProducts]= useState([])
+
+  useEffect(()=>{
+    const filteredProducts = products.filter(product=>{
+      return product.username.toLowerCase().includes(searchValue.toLowerCase()) || product.category.toLowerCase().includes(searchValue.toLowerCase())
+    }) 
+    setFilteredProducts(filteredProducts)
+
+  },[searchValue, products])
 
   return (
     <main>
@@ -18,7 +27,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ProductList products={products} title="Buy Some Beautiful Junks" />
+            <ProductList  products={filteredProducts} title="Buy Some Beautiful Junks" onAddToCart={onAddToCart} />
           )}
         </div>
       </div>
