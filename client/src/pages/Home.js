@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import ProductList from "../components/ProductList";
 import Auth from "../utils/auth";
+import Cart from "../components/Cart";
 
 const Home = () => {
   // use useQuery hook to make query request
@@ -21,6 +22,11 @@ const Home = () => {
             <ProductList products={products} title="Buy Some Beautiful Junks" />
           )}
         </div>
+        <div className="container">
+  <CategoryMenu category={category} title="Which Category Would You Like" />
+  <ProductList />
+  <Cart Cart={cart} title="Cart" />
+</div>
       </div>
     </main>
   );

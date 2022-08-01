@@ -1,5 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ADD_PRODUCT } from "../../utils/actions";
+import { DELETE_PRODUCT } from "../../utils/actions";
+ import { useStoreContext } from '../../utils/GlobalState';
+ import { ADD_PRODUCT, UPDATE_CART_QUANTITY } from '../../utils/actions';
+
+const [state, dispatch] = useStoreContext();
+
+const addProduct = () => {
+  dispatch({
+    type: ADD_PRODUCT,
+    product: { ...product, purchaseQuantity: 1 }
+  });
+};
+
+const deleteProduct = () => {
+  dispatch({
+    type: DELETE_PRODUCT,
+    product: { ...product, purchaseQuantity: 1 }
+  });
+};
+
+
+
+
+
+
+
+
+
+
 
 const ProductList = ({ products, title }) => {
   if (!products.length) {
@@ -34,11 +64,16 @@ const ProductList = ({ products, title }) => {
               <p>${product.price}</p>
             </div>
               </Link>
+              <button onClick={addProduct}>Add to cart</button>
+              <button onClick={deleteProduct}>Remove from cart</button>
           </div>
         ))}
       </div>
     </div>
   );
 };
+
+
+
 
 export default ProductList;
