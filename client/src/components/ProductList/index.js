@@ -1,45 +1,58 @@
+import { Box, Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
-const ProductList = ({ products, title, onAddToCart}) => {
+const ProductList = ({ products, onAddToCart }) => {
   if (!products.length) {
     return <h3> There is no product to display </h3>;
   }
 
   return (
     <div>
-      <h3>{title}</h3>
       <div className={'card-list'}>
         {products &&
-        products.map((product) => (
-          <div key={product._id} className="card mb-3">
-            <p className="card-header">
-              <Link
-                to={`/profile/${product.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
+          products.map((product) => (
+            <Box key={product._id} className="card mb-3">
+              <Typography className="card-header">
+                <Link
+                  to={`/profile/${product.username}`}
+                  style={{ fontWeight: 700 }}
+                  className="text-light"
                 >
-                {product.username}
-                <br />
-                
-              </Link>{" "}
-              Created on {product.createdAt}
-            </p>
+                  {product.username}
+                  <br />
+
+                </Link>{" "}
+                Created on {product.createdAt}
+              </Typography>
 
               <Link to={`/product/${product._id}`}>
-              <div  className="card-image">
-                <img src={product.image} alt='card'/>
-              </div>
-            <div className="card-body">
-              {/*  <p>{product.description}</p> */}
-              <p>{product.category}</p>
-              <p>${product.price}</p>
+                <Typography variant="h6" sx={{ pl: 2 }}>{product.productname}</Typography>
+                <div className="card-image">
+                  <img src={product.image} alt='card' />
+                </div>
+                <Container sx={{ p: 1 }}>
+                  {/*  <p>{product.description}</p> */}
+                  <Typography>{product.category}</Typography>
+                  <Typography>${product.price}</Typography>
 
-            </div>
+                </Container>
               </Link>
-              <button onClick={()=>onAddToCart({id:product._id})} className="card-button">ADD</button>
-          </div>
-        ))}
+              <Box sx={{ p: 2 }}>
+                {Auth.loggedIn() && (
+                  <>
+                    <Button
+                      size="large"
+                      variant="outlined"
+                      onClick={() => onAddToCart({ id: product._id })}
+                    >Add to Cart
+                    </Button>
+                  </>
+                )}
+              </Box>
+            </Box>
+          ))}
       </div>
     </div>
   );

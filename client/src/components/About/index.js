@@ -3,7 +3,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { alpha } from '@mui/material/styles';
-import { Container } from '@mui/material';
 
 
 const styles = theme => ({
@@ -20,7 +19,7 @@ const styles = theme => ({
   },
 });
 
-export default function Navigation() {
+export default function ColorTabs() {
   const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
@@ -29,13 +28,12 @@ export default function Navigation() {
   };
 
   return (
-    <Container maxWidth="xl">
     <Box sx={{ width: '100%' }} >
       <Tabs
         value={value}
         onChange={handleChange}
         variant="scrollable"
-        textColor=""
+        textColor="white"
         scrollButtons
         indicatorColor="secondary"
         aria-label="scrollable auto tabs example"
@@ -51,6 +49,5 @@ export default function Navigation() {
         <Tab value="7" label="Pets" />
       </Tabs>
     </Box>
-    </Container>
   );
 }

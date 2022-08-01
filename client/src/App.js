@@ -15,7 +15,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Nav from "./components/Nav";
+import Cart from "./pages/Cart"
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -82,6 +82,7 @@ function App() {
               <Route path=":username" element={<Profile />} />
               <Route path="" element={<Profile />} />
             </Route>
+            <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<SingleProduct onAddToCart={onAddToCart} />} />
 
             <Route path="*" element={<NoMatch />} />

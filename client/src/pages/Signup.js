@@ -89,7 +89,8 @@ const Signup = () => {
               required
               fullWidth
               autoComplete="current-password"
-              label='******'
+              label='Password'
+              placeholder='******'
               name='password'
               type='password'
               id='password'
@@ -103,15 +104,16 @@ const Signup = () => {
               type='submit'>
               Signing Up
             </Button>
+            <Grid container>
+              <Grid item>
+                <Link to="/Login">
+                  Have an account? Sign In
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
           {error && <div>Sign up failed</div>}
-          <Grid container>
-            <Grid item>
-              <Link to="/Login">
-                Have an account? Sign In
-              </Link>
-            </Grid>
-          </Grid>
+
         </Box>
       </Grid>
       <Grid
