@@ -53,6 +53,35 @@ export const DELETE_PRODUCT = gql`
   }
 `;
 
+//  not sure if this is right below 
+
+// const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION);
+//
+//
+//    }}
+//const DELETE_PRODUCT_MUTATION = gql'
+// mutation deleteProduct($input: deleteProduct!) {
+// deleteProduct(input: $input) {
+//  _id
+//  productname
+//  image
+//  price
+//  category
+//
+// }
+//  }
+// ';
+
+
+
+
+
+
+
+
+
+
+
 export const EMPTY_CART = gql`
   mutation emptyCart($product_id: ID!) {
     emptyCart(product_id: $product_id) {

@@ -90,3 +90,6 @@ export const QUERY_CART = gql`
     }
   }
 `;
+
+// export const CHECKOUT= gql`
+

@@ -32,7 +32,7 @@ const productSchema = new Schema({
   }
   // category: {
   //   type: Schema.Types.ObjectId,
-  //   ref: 'Category',
+  //   ref: '',
   //   required: true
   // }
 });
