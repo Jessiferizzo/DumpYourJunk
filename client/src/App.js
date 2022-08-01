@@ -15,6 +15,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -74,6 +75,7 @@ function App() {
           <Header searchValue={searchValue} setSearchValue={setSearchValue} cartProducts={cartProducts} />
           <Routes>
             <Route path="/" element={<Home searchValue={searchValue} onAddToCart={onAddToCart} />} />
+            <Route path="/nav" element={<Nav/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile">

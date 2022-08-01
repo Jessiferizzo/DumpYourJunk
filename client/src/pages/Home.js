@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import ProductList from "../components/ProductList";
 import Auth from "../utils/auth";
+import Nav from "../components/Nav";
 
 const Home = ({searchValue,onAddToCart})  => {
   // use useQuery hook to make query request
@@ -22,6 +23,7 @@ const Home = ({searchValue,onAddToCart})  => {
 
   return (
     <main>
+      <Nav></Nav>
       <div className="flex-row justify-space-between">
       <div className={`col-12 mb-3`}>
           {loading ? (
