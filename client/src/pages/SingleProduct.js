@@ -23,7 +23,7 @@ const SingleProduct = ({ onAddToCart }) => {
     <Container
       sx={{
         bgcolor: 'background.paper',
-        height: '100vh',
+        
         pt:8,
         pb:6
       }}>
