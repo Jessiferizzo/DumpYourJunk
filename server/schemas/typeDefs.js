@@ -10,6 +10,7 @@ const typeDefs = gql`
     image: String
     price: Float
     category: String
+    quantity: Int
   }
   type User {
     _id: ID
@@ -37,9 +38,9 @@ const typeDefs = gql`
     
     emptyCart(product_id:ID):Cart
 
-    increaseCartItem(product_id: ID):Cart
+    increaseQuantity(product_id: ID):Cart
 
-    decreaseCartItem(product_id: ID):Cart
+    decreaseQuantity(product_id: ID):Cart
 
     createCheckoutSession( cart_id: ID): CheckoutSession
       
