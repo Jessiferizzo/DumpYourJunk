@@ -113,7 +113,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
                   <Box className="cart">
                     <span className="cart-no">{cartProducts.length}</span>
                     <Link to="/cart">
-                    <ShoppingCartIcon ></ShoppingCartIcon>
+                      <ShoppingCartIcon ></ShoppingCartIcon>
                     </Link>
                   </Box>
                 </>

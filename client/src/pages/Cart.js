@@ -12,6 +12,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Container from '@mui/material/Container';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
+import Checkout from '../components/Checkout/Checkout'
 
 
 
@@ -33,7 +34,7 @@ export default function Cart() {
       <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
-            Cart
+            Welcome to your cart
           </Typography>
 
           <Grid item xs={12} md={6}>
@@ -62,7 +63,7 @@ export default function Cart() {
                 </ListItem>,
               )}
             </List>
-
+            <Checkout></Checkout>
           </Grid>
         </Paper>
       </Container>
