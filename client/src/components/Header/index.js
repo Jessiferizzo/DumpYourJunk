@@ -66,9 +66,10 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
   };
 
   return (
-    <AppBar position="Relative" >
+    <div  sx={{ width: '100%' }}>
+    <AppBar position="sticky">
       {/* className=" justify-space-between-lg  "*/}
-      <Toolbar className=" justify-space-between-lg  ">
+      <Toolbar  className=" justify-space-between-lg  ">
         <Link to="/">
           <Avatar sx={{ m: 2, bgcolor: "#fff" }}>
             <IconButton color="primary">
@@ -125,6 +126,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
 
       </Toolbar>
     </AppBar>
+    </div>
   );
 };
 
