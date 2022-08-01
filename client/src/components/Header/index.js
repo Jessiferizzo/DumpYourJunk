@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import { Avatar, Box, IconButton } from '@mui/material';
+import { Avatar, Box, Container, IconButton } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
@@ -67,7 +67,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
 
   return (
     <div  sx={{ width: '100%' }}>
-    <AppBar position="sticky">
+    <AppBar position="relative">
       {/* className=" justify-space-between-lg  "*/}
       <Toolbar  className=" justify-space-between-lg  ">
         <Link to="/">
@@ -104,10 +104,10 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
             
             </>
           )}
-        <nav className="text-center nav-links">
-          {Auth.loggedIn() ? (
+        <nav className=" nav-links">
+          {Auth.loggedIn ? (
             <>
-              <Link to="/profile">Me</Link>
+              <Link to="/profile">Profile</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>

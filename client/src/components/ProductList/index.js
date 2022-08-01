@@ -1,3 +1,4 @@
+import { Box, Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,12 +9,11 @@ const ProductList = ({ products, title, onAddToCart}) => {
 
   return (
     <div>
-      <h3>{title}</h3>
       <div className={'card-list'}>
         {products &&
         products.map((product) => (
-          <div key={product._id} className="card mb-3">
-            <p className="card-header">
+          <Box key={product._id} className="card mb-3">
+            <Typography className="card-header">
               <Link
                 to={`/profile/${product.username}`}
                 style={{ fontWeight: 700 }}
@@ -24,21 +24,24 @@ const ProductList = ({ products, title, onAddToCart}) => {
                 
               </Link>{" "}
               Created on {product.createdAt}
-            </p>
+            </Typography>
 
               <Link to={`/product/${product._id}`}>
+              <Typography variant="h6" sx={{pl:2}}>{product.productname}</Typography>
               <div  className="card-image">
                 <img src={product.image} alt='card'/>
               </div>
-            <div className="card-body">
+            <Container sx={{p:1}}>
               {/*  <p>{product.description}</p> */}
-              <p>{product.category}</p>
-              <p>${product.price}</p>
+              <Typography>{product.category}</Typography>
+              <Typography>${product.price}</Typography>
 
-            </div>
+            </Container>
               </Link>
-              <button onClick={()=>onAddToCart({id:product._id})} className="card-button">ADD</button>
-          </div>
+              <Box sx={{p:2}}>
+              <Button  size="large"variant="outlined"  onClick={()=>onAddToCart({id:product._id})} className="card-button">Add to Cart</Button>
+              </Box>
+          </Box>
         ))}
       </div>
     </div>
