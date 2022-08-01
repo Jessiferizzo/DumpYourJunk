@@ -109,9 +109,12 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
                   <a href="/" onClick={logout}>
                     Logout
                   </a>
+                  <link></link>
                   <Box className="cart">
                     <span className="cart-no">{cartProducts.length}</span>
+                    <Link to="/cart">
                     <ShoppingCartIcon ></ShoppingCartIcon>
+                    </Link>
                   </Box>
                 </>
               ) : (
