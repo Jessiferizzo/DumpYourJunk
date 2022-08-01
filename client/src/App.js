@@ -16,6 +16,8 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -35,9 +37,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: '##1976d2',
+      main: '#42a5f5',
+      dark: '#1565c0',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#9c27b0',
+      main: '#ba68c8',
+      dark: '#7b1fa2',
+      contrastText: '#000',
+    },
+  }
+  
+});
+
 function App() {
   return (
     <ApolloProvider client={client}>
+       <ThemeProvider theme={theme}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
@@ -58,6 +79,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      </ThemeProvider>
     </ApolloProvider>
   );
 }

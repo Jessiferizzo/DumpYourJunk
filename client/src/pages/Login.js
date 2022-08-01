@@ -3,6 +3,12 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
+import Box from '@mui/material/Box';
+import { Avatar, Button, Grid, TextField } from '@mui/material';
+import { Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
@@ -44,17 +50,32 @@ const Login = (props) => {
         <div className='card'>
           <h4 className='card-header'>Login</h4>
           <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon></LockOutlinedIcon>
+            </Avatar>
+          <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box component="form" sx={{ mt: 1 }} onSubmit={handleFormSubmit}>
+              <TextField
+                margin='normal'
+                required
+                fullWidth
                 className='form-input'
-                placeholder='Your email'
+                label="Email Address"
+                autoComplete="email"
+                autoFocus
                 name='email'
                 type='email'
                 id='email'
                 value={formState.email}
                 onChange={handleChange}
               />
-              <input
+              <TextField
+              margin="normal"
+              required
+              fullWidth
+              autoComplete="current-password"
                 className='form-input'
                 placeholder='******'
                 name='password'
@@ -63,10 +84,22 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
+              <Button 
+              sx={{ mt: 3, mb: 2 }}
+              variant="contained"
+              fullWidth
+              className='btn d-block w-100' 
+              type='submit'>
+                Sign in
+              </Button>
+              <Grid container>
+                <Grid item>
+              <Link to="/signup">
+              Don't have an account? Sign Up
+              </Link>
+              </Grid>
+              </Grid>
+            </Box>
             {error && <div>Login failed</div>}
           </div>
         </div>
