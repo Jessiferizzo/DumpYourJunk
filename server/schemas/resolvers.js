@@ -74,6 +74,20 @@ const resolvers = {
       }
     
       throw new AuthenticationError('You need to be logged in!');
+    }, 
+    deleteProduct: async (parent, args, context) => {
+      if (context.user) {
+        const product = await Product.deleteProduct({ ...args, username: context.user.username });
+    
+        await User.findByIdAndDelete(
+          { _id: context.user._id },
+          { $push: { products: product._id } },
+          { new: true }
+        );
+    
+        return product;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     }
   },
 };
