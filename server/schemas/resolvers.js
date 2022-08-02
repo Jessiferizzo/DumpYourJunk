@@ -97,6 +97,11 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     }
   },
+  createCart: async (parent, { cart_id }) => {
+
+    return await Cart.create({ _id: { cart_id } });
+
+  },
  
     emptyCart: async (parent, { cart_id }) => {
 
@@ -112,6 +117,28 @@ const resolvers = {
     addProductToCart: async (parent, { product_id }) => {
       return await Cart.create({ product_id });
     },
+    increaseCartItem: async (_, {input}, {prisma}) => {
+      const {cart_id} = await prisma.product.findByIdAndUpdate({
+        data: {
+          quantity: {
+            increment:1, 
+          },
+        },
+        where: {
+          cart_id: {
+            id: input.id,
+            cart_id: input.cart_id, 
+          },
+        },
+        select: {
+          cart_id: true
+        },
+      });
+      
+      return this.createCart(prisma, cart_id);
+
+    }
+      
 };
 
 module.exports = resolvers;
