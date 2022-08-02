@@ -104,7 +104,7 @@ const resolvers = {
 
     },
 
-    deleteProductToCart: async (parent, { product_id }) => {
+    removeProductFromCart: async (parent, { product_id }) => {
 
       return await Cart.findOneAndDelete({ product_id });
 

@@ -4,6 +4,11 @@ import { ADD_PRODUCT } from "../../utils/actions";
 import { DELETE_PRODUCT } from "../../utils/actions";
  import { useStoreContext } from '../../utils/GlobalState';
  import { ADD_PRODUCT, UPDATE_CART_QUANTITY } from '../../utils/actions';
+ import React, { useEffect } from 'react';
+
+ import { useStoreContext } from '../../utils/GlobalState';
+import { UPDATE_PRODUCTS } from '../../utils/actions';
+
 
 const [state, dispatch] = useStoreContext();
 
