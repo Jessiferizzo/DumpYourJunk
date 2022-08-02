@@ -41,12 +41,14 @@ const resolvers = {
   },
 
   Mutation: {
+    
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
     },
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -63,6 +65,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    
     addProduct: async (parent, args, context) => {
       if (context.user) {
         const product = await Product.create({ ...args, username: context.user.username });
@@ -78,6 +81,7 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     }, 
+    
     deleteProduct: async (parent, args, context) => {
       if (context.user) {
         const product = await Product.deleteOne({ ...args, username: context.user.username });
@@ -98,6 +102,15 @@ const resolvers = {
 
       return await Cart.deleteOne({ _id: { cart_id } });
 
+    },
+
+    deleteProductToCart: async (parent, { product_id }) => {
+
+      return await Cart.findOneAndDelete({ product_id });
+
+    },
+    addProductToCart: async (parent, { product_id }) => {
+      return await Cart.create({ product_id });
     },
 };
 

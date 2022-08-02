@@ -29,12 +29,12 @@ const addProduct = () => {
   }
 };
 
-const addProduct = () => {
+//const addProduct = () => {
   dispatch({
     type: ADD_PRODUCT,
     product: { ...product, purchaseQuantity: 1 }
   });
-};
+// };
 
 const deleteProduct = () => {
   dispatch({
