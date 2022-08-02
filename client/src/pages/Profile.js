@@ -8,6 +8,9 @@ import { Box, Container } from "@mui/system";
 import Modal from '@mui/material/Modal';
 import { Button, Card, Stack, TextField } from "@mui/material";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import SelectTextFields from "../components/CategoryDropdown";
+
+
 
 const Profile = () => {
   
@@ -102,15 +105,8 @@ const Profile = () => {
                   autoFocus
                   name="product"
                 />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="Category of product"
-                  autoFocus
-                  name="Category"
-                />
-                <TextField
+                  <SelectTextFields ></SelectTextFields>
+                  <TextField
                   margin="normal"
                   required
                   fullWidth
