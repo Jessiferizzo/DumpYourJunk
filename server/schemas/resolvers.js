@@ -134,6 +134,28 @@ const resolvers = {
           cart_id: true
         },
       });
+    
+      return this.createCart(prisma, cart_id);
+    
+    },
+
+      decreaseCartItem: async (_, {input}, {prisma}) => {
+        const {cart_id} = await prisma.product.findByIdAndUpdate({
+          data: {
+            quantity: {
+              decrement:1, 
+            },
+          },
+          where: {
+            cart_id: {
+              id: input.id,
+              cart_id: input.cart_id, 
+            },
+          },
+          select: {
+            cart_id: true
+          },
+        });
       
       return this.createCart(prisma, cart_id);
 

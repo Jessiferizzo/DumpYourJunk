@@ -60,10 +60,10 @@ const [removeProductFromCart] = useMutation(REMOVE_PRODUCT_FROM_CART);
 
 
 export const REMOVE_PRODUCT_FROM_CART = gql'
- mutation removeProductFromCart($product_id: ID) {
+ mutation removeProductFromCart($cart:ID, $product: ID) {
   removeProductFromCart(product_id: $product_id) {
   
-  Cart {
+  Data: {
       product_id
       cart_id
 
