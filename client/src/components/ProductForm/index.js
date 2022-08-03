@@ -8,6 +8,7 @@ const ProductForm = () => {
     description: "",
     image: "",
     price: "",
+    category: "",
   });
   // const [characterCount, setCharacterCount] = useState(0);
 
@@ -61,7 +62,13 @@ const ProductForm = () => {
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         />
-
+        <input
+          placeholder="Category"
+          name="category"
+          value={productState.category}
+          className="form-input col-12 col-md-9"
+          onChange={handleChange}
+        />
         <input
           placeholder="image"
           name="image"
