@@ -1,6 +1,12 @@
 import React from 'react';
 
-const CartItem = ({ product }) => {
+var i = 0;
+function increaseCartItem() {
+  document.getElementById('inc').value = ++i;
+}
+
+
+const cartItem = ({ product }) => {
   return (
     <div className="flex-row">
       <div>
@@ -16,8 +22,7 @@ const CartItem = ({ product }) => {
           <input
             type="number"
             placeholder="1"
-            value={product.Quantity}
-          />
+            value={product.Quantity} />
           <span
             role="img"
             aria-label="trash"
@@ -30,4 +35,5 @@ const CartItem = ({ product }) => {
   );
 }
 
-export default CartItem;
+
+export default cartItem;
