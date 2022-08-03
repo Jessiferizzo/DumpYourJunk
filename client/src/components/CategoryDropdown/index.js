@@ -35,15 +35,18 @@ export default function SelectTextFields() {
 
   return (
     <Box
-      component="form"
+      
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '100%' },
+        '& .MuiTextField-root': {  width: '100%' },
       }}
       noValidate
       autoComplete="off"
     >
       <div>
         <TextField
+          margin="normal"
+          required
+          fullWidth
           id="outlined-select-category"
           select
           label="Category"
@@ -56,6 +59,7 @@ export default function SelectTextFields() {
             </MenuItem>
           ))}
         </TextField>
-        </div>
-        </Box>
-  )}
+      </div>
+    </Box>
+  )
+}

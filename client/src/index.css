@@ -51,8 +51,9 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: var(--light);
+  border-radius: 30px;
 }
 
 .page-title {

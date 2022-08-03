@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
-import { Button, Card, Modal, Stack, TextField } from "@mui/material";
+import { Button, Card, Modal, TextField } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import SelectTextFields from "../../components/CategoryDropdown";
 
 const style = {
   position: 'absolute',
@@ -74,56 +74,51 @@ const ProductForm = () => {
         >
         <Box sx={style}>
           <Card>
-          <Box>
+   
             <form
-              onSubmit={handleFormSubmit}
->
+              onSubmit={handleFormSubmit}>
               <Box>
               <TextField
                 margin="normal"
-                required
                 fullWidth
-                label="Here's a new Product name"
-                name="productname"
-                value={productState.productname}
-                onChange={handleChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                label="Description"
-                name="description"
-                value={productState.description}
-                onChange={handleChange}
-              />
-
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-
                 name="image"
                 value={productState.image}
                 onChange={handleChange}
                 hidden accept="image/*" multiple type="file"
               />
+                <SelectTextFields></SelectTextFields>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                label="price"
-                name="price"
-                value={productState.price}
-
+                label="Product name"
+                name="productname"
+                value={productState.productname}
                 onChange={handleChange}
               />
-              <Button variant="contained" type="submit">
+                            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Price"
+                name="price"
+                value={productState.price}
+                onChange={handleChange}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label=" Product description"
+                name="description"
+                value={productState.description}
+                onChange={handleChange}
+              />
+              <Button fullWidth variant="contained" type="submit">
                 Submit
               </Button>
               </Box>
             </form>
-            </Box>
           </Card>
         </Box>
       </Modal>
