@@ -8,8 +8,9 @@ import { Box, Container } from "@mui/system";
 import Modal from '@mui/material/Modal';
 import { Button, Card, Stack, TextField } from "@mui/material";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import ProductForm from "../components/ProductForm";
 
-const Profile = () => {
+const Profile = (props) => {
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -139,6 +140,7 @@ const Profile = () => {
           </Box>
         </Modal>
       </Card >
+      <div className="mb-3">{!userParam && <ProductForm />}</div>
     </Container >
   );
 };
