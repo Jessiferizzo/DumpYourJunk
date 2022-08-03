@@ -27,8 +27,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
-  color: var(--dark);
-  background-color: #f3fffee1;
 }
 
 a {
@@ -62,14 +60,7 @@ nav a:hover {
   margin: 0;
 }
 
-.search-input {
-  width: 350px;
-  height: 50px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  padding: 10px;
-}
+
 
 .btn,
 .pill {
@@ -97,7 +88,6 @@ nav a:hover {
 
 .nav-links {
   display: flex;
-  align-items: center;
 }
 
 /* CARDS */
@@ -158,11 +148,11 @@ nav a:hover {
 }
 
 .cart > .cart-no {
-  position: absolute;
+  position: static;
   top: -40%;
   right: -10%;
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 10px;
+  min-height: 10px;
   background: var(--primary);
   border-radius: 50%;
   color: var(--light);
