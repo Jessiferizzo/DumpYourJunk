@@ -1,35 +1,35 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 
 const productSchema = new Schema({
   productname: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   description: {
-    type: String
+    type: String,
+    required: true,
   },
   image: {
-    type: String
+    type: String,
   },
   price: {
-    type: Number,
-    required: true,
-    min: 0.99
+    type: String,
+    min: 0.99,
   },
   createdAt: {
     type: Date,
     default: Date.now,
-    get: timestamp => dateFormat(timestamp)
+    get: (timestamp) => dateFormat(timestamp),
   },
   username: {
     type: String,
-    required: true
+    required: true,
   },
   category: {
     type: String,
-  }
+  },
   // category: {
   //   type: Schema.Types.ObjectId,
   //   ref: 'Category',
@@ -37,6 +37,6 @@ const productSchema = new Schema({
   // }
 });
 
-const Product = model('Product', productSchema);
+const Product = model("Product", productSchema);
 
 module.exports = Product;
