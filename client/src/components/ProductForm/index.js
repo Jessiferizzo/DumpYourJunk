@@ -39,7 +39,6 @@ const ProductForm = () => {
     price: "",
     category: "",
   });
-  // const [characterCount, setCharacterCount] = useState(0);
 
   // const [addProduct] = useMutation(ADD_PRODUCT);
 
@@ -70,9 +69,6 @@ const ProductForm = () => {
   const handleChange = (event) => {
     let { name, value } = event.target;
 
-    // if(name === "price"){
-    //   value = parseInt(value)
-    // }
     setproductState({
       ...productState,
       [name]: value,
@@ -87,13 +83,12 @@ const ProductForm = () => {
       await addProduct({ variables: { ...productState } });
 
       // clear form value
+      setproductState(" ")
 
-      // setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
   };
-
 
   return (
     <div>

@@ -6,7 +6,7 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import { Container } from "@mui/system";
 import ProductForm from "../components/ProductForm";
-import UploadAndDisplayImage from "../components/Upload"
+
 
 
 const Profile = (props) => {
