@@ -46,13 +46,13 @@ db.once("open", async () => {
         "https://images.unsplash.com/photo-1495121553079-4c61bcce1894?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=981&q=80";
     } else if (category === "Home and Garden") {
       image =
-        "https://thumbor.offerup.com/eOuWzhE3AmlADp5tRT1RyboKKXA=/756x1008/cadf/cadfdd8f099e4637bbbb336701246f69.jpg";
+        "https://i.etsystatic.com/24967772/r/il/f68384/2587510008/il_794xN.2587510008_sruu.jpg";
     } else if (category === "Clothing, Shoes, Accessories") {
       image =
         "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80";
     } else if (category === "Toys, Games, Hobbies") {
       image =
-        "https://images.unsplash.com/photo-1530325553241-4f6e7690cf36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80";
+        "https://images.unsplash.com/photo-1611604548018-d56bbd85d681?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
     } else if (category === "Pets") {
       image =
         "https://images.unsplash.com/photo-1604186838309-c6715f0d3e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80";
