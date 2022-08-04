@@ -112,7 +112,7 @@ const Home = ({ searchValue, onAddToCart }) => {
                   sx={styles}
           >
           <Tab label="Electronics" onClick={electronicsClick}></Tab>
-          <Tab label="homeAndGarden" onClick={homeAndGarden}></Tab>
+          <Tab label="Home and Garden" onClick={homeAndGarden}></Tab>
           <Tab label="Clothing, Shoes, and Accessories" onClick={clothingShoesAndAccessories}></Tab>
           <Tab label="Toys, Games, Hobbies" onClick={toysAndGames}></Tab>
           <Tab label="Pets" onClick={pets}></Tab>
