@@ -69,6 +69,15 @@ const Home = ({ searchValue, onAddToCart }) => {
     setFilteredProducts(newName)
   }
 
+  function pets () {
+    const newName = products.filter((product) => {
+      return (
+        product.category.toLowerCase().includes("Pets".toLowerCase())
+      )
+    })
+    setFilteredProducts(newName)
+  }
+
 
   useEffect(() => {
     const filteredProducts = products.filter((product) => {
@@ -108,6 +117,7 @@ const Home = ({ searchValue, onAddToCart }) => {
           <Tab label="homeAndGarden" onClick={homeAndGarden}></Tab>
           <Tab label="Clothing, Shoes, and Accessories" onClick={clothingShoesAndAccessories}></Tab>
           <Tab label="Toys, Games, Hobbies" onClick={toysAndGames}></Tab>
+          <Tab label="Pets" onClick={pets}></Tab>
           </Tabs>
         </Box>
       </Container>
