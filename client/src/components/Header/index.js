@@ -10,7 +10,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Navigation from "../Nav";
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 
@@ -144,13 +143,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick })
 
           </Toolbar>
         </Container>
-        <Container>
-          {Auth.loggedIn() && (
-            <>
-              <Navigation electronicsClick={electronicsClick}></Navigation>
-            </>
-          )}
-        </Container>
+
       </AppBar>
     </Box>
   );

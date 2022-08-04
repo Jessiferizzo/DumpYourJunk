@@ -6,9 +6,24 @@ import Auth from "../utils/auth";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import ProductForm from "../components/ProductForm";
+import { Tab, Tabs } from "@mui/material";
+import { alpha } from '@mui/material/styles';
 
-const Home = ({ searchValue, onAddToCart}) => {
+const styles = theme => ({
+  padding: theme.spacing(1),
+  [theme.breakpoints.down('xl')]: {
+    width: '100%'
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '100%'
+  },
+  backgroundColor: (theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+});
+
+const Home = ({ searchValue, onAddToCart }) => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -17,7 +32,7 @@ const Home = ({ searchValue, onAddToCart}) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
 
-  function electronicsClick () {
+  function electronicsClick() {
 
     const newName = products.filter((product) => {
       return (
@@ -27,7 +42,7 @@ const Home = ({ searchValue, onAddToCart}) => {
     setFilteredProducts(newName)
   }
 
-  function homeAndGarden () {
+  function homeAndGarden() {
     const newName = products.filter((product) => {
       return (
         product.category.toLowerCase().includes("Home and Garden".toLowerCase())
@@ -35,8 +50,8 @@ const Home = ({ searchValue, onAddToCart}) => {
     })
     setFilteredProducts(newName)
   }
-  
-  function clothingShoesAndAccessories () {
+
+  function clothingShoesAndAccessories() {
     const newName = products.filter((product) => {
       return (
         product.category.toLowerCase().includes("Clothing, Shoes, Accessories".toLowerCase())
@@ -44,8 +59,8 @@ const Home = ({ searchValue, onAddToCart}) => {
     })
     setFilteredProducts(newName)
   }
-  
-  function toysAndGames () {
+
+  function toysAndGames() {
     const newName = products.filter((product) => {
       return (
         product.category.toLowerCase().includes("Toys, Games, Hobbies".toLowerCase())
@@ -66,14 +81,36 @@ const Home = ({ searchValue, onAddToCart}) => {
     setFilteredProducts(filteredProducts);
   }, [searchValue, products]);
 
- 
+  const [value, setValue] = React.useState('1');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    console.log(newValue)
+  };
+
+
 
   return (
     <main sx={{ mt: 6 }}>
-      <button onClick={electronicsClick}>Electronics</button>
-      <button onClick={homeAndGarden}>Home and Garden</button>
-      <button onClick={clothingShoesAndAccessories}>Clothing, Shoes, and Accessories</button>
-      <button onClick={toysAndGames}>Toys, Games, Hobbies</button>
+      <Container maxWidth='xl'>
+        <Box sx={{ width: '100%' }}>
+          <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  variant="scrollable"
+                  textColor="inherit"
+                  scrollButtons
+                  indicatorColor="secondary"
+                  aria-label="full width tabs example"
+                  sx={styles} 
+          >
+          <Tab label="Electronics" onClick={electronicsClick}></Tab>
+          <Tab label="homeAndGarden" onClick={homeAndGarden}></Tab>
+          <Tab label="Clothing, Shoes, and Accessories" onClick={clothingShoesAndAccessories}></Tab>
+          <Tab label="Toys, Games, Hobbies" onClick={toysAndGames}></Tab>
+          </Tabs>
+        </Box>
+      </Container>
       <Box
         sx={{
           bgcolor: "background.paper",
