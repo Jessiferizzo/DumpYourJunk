@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import { Avatar, Box, Container, IconButton } from '@mui/material';
+import { Avatar, Box, Container, Grid, IconButton } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
@@ -11,6 +11,8 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Navigation from "../Nav";
+import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
+import AccountBoxRoundedIcon from '@mui/icons-material/AccountBoxRounded';
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2,),
@@ -67,7 +69,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick })
   };
 
   return (
-    <div sx={{ width: '100%' }}>
+    <Box >
       <AppBar position="relative">
         <Container maxWidth="xl">
           {/* className=" justify-space-between-lg  "*/}
@@ -79,7 +81,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick })
                 </IconButton>
               </Avatar>
             </Link>
-            <Typography variant="h6" color="inherit">
+            <Typography variant="h6" color="inherit" sx={{ pl: 2, pr: 2 }}>
               Sell your Junk
             </Typography>
             {Auth.loggedIn() && (
@@ -102,28 +104,43 @@ const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick })
 
               </>
             )}
-            <nav className="text-center nav-links">
+            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
               {Auth.loggedIn() ? (
-                <>
-                  <Link to="/profile">Profile</Link>
-                  <a href="/" onClick={logout}>
-                    Logout
-                  </a>
-                  <link></link>
-                  <Box className="cart">
-                    <span className="cart-no">{cartProducts.length}</span>
-                    <Link to="/cart">
-                      <ShoppingCartIcon ></ShoppingCartIcon>
+                <Grid container spacing={1} justifyContent="center" rowSpacing={1}>
+                  <Grid item>
+                    <Link to="/profile">
+                      <IconButton size="large">
+                        <AccountBoxRoundedIcon></AccountBoxRoundedIcon>
+                      </IconButton>
                     </Link>
-                  </Box>
-                </>
+                  </Grid>
+                  <Grid item>
+                    <a href="/" onClick={logout}>
+                      <IconButton size="large">
+                        <ExitToAppRoundedIcon></ExitToAppRoundedIcon>
+                      </IconButton>
+                    </a>
+                  </Grid>
+                  <Grid item>
+                    <Box className="cart">
+                      <span className="cart-no">{cartProducts.length}</span>
+                      <Link to="/cart">
+                        <ShoppingCartIcon ></ShoppingCartIcon>
+                      </Link>
+
+                    </Box>
+                  </Grid>
+                </Grid>
               ) : (
-                <>
-                  <Link to="/login">Login</Link>
-                  <Link to="/signup">Signup</Link>
-                </>
+                <Box >
+                  <IconButton sx={{ fontSize: "15px" }} >
+                    <Link to="/login" >Login</Link></IconButton>
+                  <IconButton sx={{ fontSize: "15px" }}>
+                    <Link to="/signup" >Signup</Link>
+                  </IconButton>
+                </Box>
               )}
-            </nav>
+            </Box>
 
           </Toolbar>
         </Container>
@@ -135,7 +152,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick })
           )}
         </Container>
       </AppBar>
-    </div>
+    </Box>
   );
 };
 

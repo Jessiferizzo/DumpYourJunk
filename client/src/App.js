@@ -20,6 +20,7 @@ import Auth from "./utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "./utils/queries";
 
+import Nav from "./components/Nav"
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -57,6 +58,7 @@ const theme = createTheme({
       contrastText: '#000',
     },
   }
+
 
 });
 

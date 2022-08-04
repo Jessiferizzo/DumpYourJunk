@@ -3,6 +3,24 @@ import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { Button, Card, Modal, TextField } from "@mui/material";
+import { Box, Container } from "@mui/system";
+import SelectTextFields from "../../components/CategoryDropdown";
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  display: 'flex',
+  maxWidth: '100vh',
+  maxheight: '100vh',
+  radius: ''
+};
 
 const ProductForm = () => {
   const [productState, setproductState] = useState({
@@ -67,6 +85,9 @@ const ProductForm = () => {
     }
   };
 
+const [open, setOpen] = React.useState(false);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
   return (
     <div>
       <p className={`m-0`}></p>

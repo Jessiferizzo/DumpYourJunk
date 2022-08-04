@@ -13,29 +13,29 @@ const ProductList = ({ products, onAddToCart }) => {
       <div className={'card-list'}>
         {products &&
           products.map((product) => (
-            <Box key={product._id} className="card mb-3">
-              <Typography className="card-header">
+            <Box key={product._id} sx={{bgcolor: 'background.paper', p: 1 }} className="card mb-2">
+              <Typography variant="body1" sx={{ p: 2 }} className="card-header">
                 <Link
                   to={`/profile/${product.username}`}
-                  style={{ fontWeight: 700 }}
+                  style={{ }}
                   className="text-light"
                 >
                   {product.username}
                   <br />
 
                 </Link>{" "}
-                Created on {product.createdAt}
+                Posted on {product.createdAt}
               </Typography>
 
               <Link to={`/product/${product._id}`}>
-                <Typography variant="h6" sx={{ pl: 2 }}>{product.productname}</Typography>
+                <Typography variant="h6" sx={{ p: 2 }}>{product.productname}</Typography>
                 <div className="card-image">
                   <img src={product.image} alt='card' />
                 </div>
-                <Container sx={{ p: 1 }}>
+                <Container sx={{ p: 2 }}>
                   {/*  <p>{product.description}</p> */}
-                  <Typography>{product.category}</Typography>
-                  <Typography>${product.price}</Typography>
+                  <Typography variant="body1">{product.category}</Typography>
+                  <Typography variant="body1">${product.price}</Typography>
 
                 </Container>
               </Link>

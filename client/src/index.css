@@ -4,7 +4,7 @@
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #ffffff;
-  --dark: #6c6c6c99;
+  --dark: #232f34;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -26,53 +26,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
-  font-weight: 400;
-  line-height: 1.5;
-  font-size: 20px;
-  color: var(--dark);
-  background-color: #f3fffee1;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 700;
-  margin: 5px 0;
-  line-height: 1.25;
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-h5 {
-  font-size: 1.25rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-p {
-  font-size: 1.1rem;
-  margin-top: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
 }
 
 a {
@@ -86,7 +40,6 @@ a:visited {
 
 nav {
   width: 100%;
-  justify-content: center;
 }
 
 nav a {
@@ -96,25 +49,18 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color: var(--dark);
+  background-color: var(--light);
+  border-radius: 30px;
 }
 
 .page-title {
   text-align: center;
   width: 100%;
   margin: 0;
-  font-size: 2.5rem;
 }
 
-.search-input {
-  width: 350px;
-  height: 50px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  padding: 10px;
-}
+
 
 .btn,
 .pill {
@@ -142,16 +88,15 @@ nav a:hover {
 
 .nav-links {
   display: flex;
-  align-items: center;
 }
 
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
   color: var(--dark);
+  box-shadow: 0 3px 5px rgb(0 0 0 / 0.2);
 }
 
 .card-list {
@@ -164,14 +109,14 @@ nav a:hover {
   color: var(--secondary);
   margin: 0;
   background-color: var(--dark);
-  padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-image {
   width: 100%;
+  margin:0;
   padding-top: 50%;
-  position: relative;
+  position:relative;
 }
 
 .card-image>img {
@@ -184,7 +129,6 @@ nav a:hover {
 
 .card-body {
   padding: 2.5%;
-  font-size: 1.4rem;
 }
 
 .card-button {
@@ -204,11 +148,11 @@ nav a:hover {
 }
 
 .cart > .cart-no {
-  position: absolute;
+  position: static;
   top: -40%;
   right: -10%;
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 10px;
+  min-height: 10px;
   background: var(--primary);
   border-radius: 50%;
   color: var(--light);

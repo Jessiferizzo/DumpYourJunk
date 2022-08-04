@@ -23,30 +23,30 @@ const SingleProduct = ({ onAddToCart }) => {
     <Container
       sx={{
         bgcolor: 'background.paper',
-        height: '100vh',
+        
         pt:8,
         pb:6
       }}>
       <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
         <CardActionArea >
-          <Typography className="card-header">
-            <Typography style={{ fontWeight: 700 }} className="text-light">
+          <Typography sx={{p:2}}  className="card-header">
+            <Typography>
               {product.username}
             </Typography>{" "}
-             product on {product.createdAt}
-            <Typography sx={{pt:2}}>
-              <p><span style={{ fontWeight: 400 }} className="text-light">Caterogy:</span> {product.category}</p>
+             Posted on: {product.createdAt}
+            <Typography>
+              <p><span>Category:</span> {product.category}</p>
             </Typography>
           </Typography>
           <Box           sx={{
             bgcolor: 'background.paper',
             p: 5
           }}>
-            <Typography variant="h5" component="h2">{product.productname}</Typography>
+            <Typography variant="h5" sx={{pt:2, pb:2}}>{product.productname}</Typography>
             <CardMedia className="card-image" >
               <img src={product.image} alt='card' />
             </CardMedia>
-            <Typography sx={{pt:2, pb:2}}>${product.price}</Typography>
+            <Typography variant="body1"sx={{pt:2, pb:2}}>${product.price}</Typography>
             <p>{product.description}</p>
             
             
