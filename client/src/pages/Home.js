@@ -6,14 +6,13 @@ import Auth from "../utils/auth";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import ProductForm from "../components/ProductForm";
 
 const Home = ({ searchValue, onAddToCart}) => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
-  const loggedIn = Auth.loggedIn();
+  // const loggedIn = Auth.loggedIn();
   const [filteredProducts, setFilteredProducts] = useState([]);
 
 

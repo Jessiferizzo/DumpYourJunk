@@ -2,25 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
 import { QUERY_PRODUCTS } from '../../utils/queries';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-import { Button, Card, Modal, TextField } from "@mui/material";
-import { Box, Container } from "@mui/system";
-import SelectTextFields from "../../components/CategoryDropdown";
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  display: 'flex',
-  maxWidth: '100vh',
-  maxheight: '100vh',
-  radius: ''
-};
+import { QUERY_ME } from '../../utils/queries';
 
 const ProductForm = () => {
   const [productState, setproductState] = useState({
@@ -30,11 +12,8 @@ const ProductForm = () => {
     price: "",
     category: "",
   });
-  // const [characterCount, setCharacterCount] = useState(0);
 
-  // const [addProduct] = useMutation(ADD_PRODUCT);
-
-  const [addProduct, { error }] = useMutation(ADD_PRODUCT, {
+  const [addProduct] = useMutation(ADD_PRODUCT, {
     update(cache, { data: { addProduct } }) {
   
         // could potentially not exist yet, so wrap in a try/catch
@@ -61,9 +40,6 @@ const ProductForm = () => {
   const handleChange = (event) => {
     let { name, value } = event.target;
 
-    // if(name === "price"){
-    //   value = parseInt(value)
-    // }
     setproductState({
       ...productState,
       [name]: value,
@@ -78,16 +54,13 @@ const ProductForm = () => {
       await addProduct({ variables: { ...productState } });
 
       // clear form value
+      setproductState(" ")
 
-      // setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
   };
 
-const [open, setOpen] = React.useState(false);
-const handleOpen = () => setOpen(true);
-const handleClose = () => setOpen(false);
   return (
     <div>
       <p className={`m-0`}></p>
