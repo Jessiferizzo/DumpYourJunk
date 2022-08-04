@@ -6,6 +6,7 @@ import { QUERY_ME } from '../../utils/queries';
 import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import MenuItem from '@mui/material/MenuItem';
+import UploadAndDisplayImage from "../../components/Upload"
 
 const categories = [
   {
@@ -158,7 +159,9 @@ const ProductForm = () => {
             value={productState.image}
             className="form-input col-12 col-md-9"
             onChange={handleChange}
-          />
+            
+          ></TextField><UploadAndDisplayImage />
+          
           <TextField
             margin="normal"
             required
