@@ -20,7 +20,7 @@ const styles = theme => ({
   },
 });
 
-export default function Navigation() {
+export default function Navigation({electronicsClick}) {
   const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
@@ -30,6 +30,9 @@ export default function Navigation() {
 
   return (
     <Container maxWidth="xl">
+      <div onClick = {electronicsClick} style={{cursor: 'pointer'}}>
+        <p>Electronics</p>
+        </div>
     <Box sx={{ width: '100%' }} >
       <Tabs
         value={value}
@@ -42,7 +45,10 @@ export default function Navigation() {
         sx={styles}
 
       >
-        <Tab value="1" label="Electronics" />
+        
+        <Tab value="1" label="Electronics"  /> 
+        
+
         <Tab value="2" label="Home and Garden" />
         <Tab value="3" label="Clothing, Shoes, Accessories" />
         <Tab value="4" label="Toys, Games, Hobbies" />

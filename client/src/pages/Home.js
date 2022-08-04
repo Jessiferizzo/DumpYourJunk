@@ -8,13 +8,52 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import ProductForm from "../components/ProductForm";
 
-const Home = ({ searchValue, onAddToCart }) => {
+const Home = ({ searchValue, onAddToCart}) => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const products = data?.products || [];
   const loggedIn = Auth.loggedIn();
   const [filteredProducts, setFilteredProducts] = useState([]);
+
+
+  function electronicsClick () {
+
+    const newName = products.filter((product) => {
+      return (
+        product.category.toLowerCase().includes("Electronics".toLowerCase())
+      )
+    })
+    setFilteredProducts(newName)
+  }
+
+  function homeAndGarden () {
+    const newName = products.filter((product) => {
+      return (
+        product.category.toLowerCase().includes("Home and Garden".toLowerCase())
+      )
+    })
+    setFilteredProducts(newName)
+  }
+  
+  function clothingShoesAndAccessories () {
+    const newName = products.filter((product) => {
+      return (
+        product.category.toLowerCase().includes("Clothing, Shoes, Accessories".toLowerCase())
+      )
+    })
+    setFilteredProducts(newName)
+  }
+  
+  function toysAndGames () {
+    const newName = products.filter((product) => {
+      return (
+        product.category.toLowerCase().includes("Toys, Games, Hobbies".toLowerCase())
+      )
+    })
+    setFilteredProducts(newName)
+  }
+
 
   useEffect(() => {
     const filteredProducts = products.filter((product) => {
@@ -23,11 +62,18 @@ const Home = ({ searchValue, onAddToCart }) => {
         product.category.toLowerCase().includes(searchValue.toLowerCase())
       );
     });
+
     setFilteredProducts(filteredProducts);
   }, [searchValue, products]);
 
+ 
+
   return (
     <main sx={{ mt: 6 }}>
+      <button onClick={electronicsClick}>Test Electronics</button>
+      <button onClick={homeAndGarden}>Home and Garden</button>
+      <button onClick={clothingShoesAndAccessories}>Clothing, Shoes, and Accessories</button>
+      <button onClick={toysAndGames}>Toys, Games, Hobbies</button>
       <Box
         sx={{
           bgcolor: "background.paper",

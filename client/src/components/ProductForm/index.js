@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
+import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 
 const ProductForm = () => {
   const [productState, setproductState] = useState({
@@ -12,7 +14,31 @@ const ProductForm = () => {
   });
   // const [characterCount, setCharacterCount] = useState(0);
 
-  const [addProduct] = useMutation(ADD_PRODUCT);
+  // const [addProduct] = useMutation(ADD_PRODUCT);
+
+  const [addProduct, { error }] = useMutation(ADD_PRODUCT, {
+    update(cache, { data: { addProduct } }) {
+  
+        // could potentially not exist yet, so wrap in a try/catch
+      try {
+        // update me array's cache
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, products: [...me.products, addProduct] } },
+        });
+      } catch (e) {
+        console.warn("First product insertion by user!")
+      }
+  
+      // update thought array's cache
+      const { products } = cache.readQuery({ query: QUERY_PRODUCTS });
+      cache.writeQuery({
+        query: QUERY_PRODUCTS,
+        data: { products: [addProduct, ...products] },
+      });
+    }
+  });
 
   const handleChange = (event) => {
     let { name, value } = event.target;
