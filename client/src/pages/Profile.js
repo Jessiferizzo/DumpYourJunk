@@ -103,7 +103,6 @@ const Profile = (props) => {
                   autoFocus
                   name="product"
                 />
-                  <SelectTextFields ></SelectTextFields>
                   <TextField
                   margin="normal"
                   required
