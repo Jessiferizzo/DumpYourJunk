@@ -35,11 +35,11 @@ const ProductForm = () => {
       }
 
       // update thought array's cache
-      const { products } = cache.readQuery({ query: QUERY_PRODUCTS });
-      cache.writeQuery({
-        query: QUERY_PRODUCTS,
-        data: { products: [addProduct, ...products] },
-      });
+      // const { products } = cache.readQuery({ query: QUERY_PRODUCTS });
+      // cache.writeQuery({
+      //   query: QUERY_PRODUCTS,
+      //   data: { products: [addProduct, ...products] },
+      // });
     }
   });
 
@@ -60,7 +60,13 @@ const ProductForm = () => {
       await addProduct({ variables: { ...productState } });
 
       // clear form value
-      setproductState(" ")
+          // clear form value
+    setproductState({
+      productname: "", 
+      description: "",
+      image: "",
+      price: "",
+      category: "",})
 
     } catch (e) {
       console.error(e);

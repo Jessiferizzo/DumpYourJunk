@@ -34,7 +34,7 @@ db.once("open", async () => {
   // create productData
   const productData = [];
 
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 200; i += 1) {
     const productname = faker.commerce.productName();
     const description = `${productname} is Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident`;
     const price = faker.commerce.price();
