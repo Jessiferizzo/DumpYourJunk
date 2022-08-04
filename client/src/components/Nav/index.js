@@ -35,7 +35,7 @@ export default function Navigation() {
         value={value}
         onChange={handleChange}
         variant="scrollable"
-        textColor=""
+        textColor="inherit"
         scrollButtons
         indicatorColor="secondary"
         aria-label="scrollable auto tabs example"

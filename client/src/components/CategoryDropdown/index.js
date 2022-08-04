@@ -27,7 +27,7 @@ const categories = [
 ];
 
 export default function SelectTextFields() {
-  const [category, setCategory] = React.useState('Category');
+  const [category, setCategory] = React.useState('USD');
 
   const handleChange = (event) => {
     setCategory(event.target.value);
