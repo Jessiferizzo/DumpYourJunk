@@ -28,15 +28,15 @@ const Search = styled('div')(({ theme }) => ({
     width: '70%',
     [theme.breakpoints.down('lg')]: {
         marginLeft: theme.spacing(3),
-        width: '40%',
-    },
-    [theme.breakpoints.up('lg')]: {
-        marginLeft: theme.spacing(3),
-        width: '40%',
-    },
-    [theme.breakpoints.down('md')]: {
-        marginLeft: theme.spacing(3),
         width: '70%',
+    },
+    [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(3),
+        width: '40%',
+    },
+    [theme.breakpoints.up('md')]: {
+        marginLeft: theme.spacing(3),
+        width: '100%',
     },
 }));
 
