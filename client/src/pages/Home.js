@@ -101,8 +101,7 @@ const Home = ({ searchValue, onAddToCart }) => {
 
   return (
     <main sx={{ mt: 6 }}>
-      <Container maxWidth='xl'>
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', bgcolor: 'primary.main' }}>
           <Tabs
                   value={value}
                   onChange={handleChange}
@@ -111,7 +110,7 @@ const Home = ({ searchValue, onAddToCart }) => {
                   scrollButtons
                   indicatorColor="secondary"
                   aria-label="full width tabs example"
-                  sx={styles} 
+                  sx={styles}
           >
           <Tab label="Electronics" onClick={electronicsClick}></Tab>
           <Tab label="homeAndGarden" onClick={homeAndGarden}></Tab>
@@ -120,7 +119,7 @@ const Home = ({ searchValue, onAddToCart }) => {
           <Tab label="Pets" onClick={pets}></Tab>
           </Tabs>
         </Box>
-      </Container>
+      
       <Box
         sx={{
           bgcolor: "background.paper",
