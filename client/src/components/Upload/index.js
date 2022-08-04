@@ -5,7 +5,6 @@ const UploadAndDisplayImage = () => {
 
   return (
     <div>
-      <h1>Upload and Display Image usign React Hook's</h1>
       {selectedImage && (
         <div>
         <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />

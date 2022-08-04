@@ -5,31 +5,8 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { QUERY_ME } from '../../utils/queries';
 import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import MenuItem from '@mui/material/MenuItem';
 import UploadAndDisplayImage from "../../components/Upload"
 
-const categories = [
-  {
-    value: 'USD',
-    label: 'Electronics',
-  },
-  {
-    value: 'EUR',
-    label: 'Home and Garden',
-  },
-  {
-    value: 'BTC',
-    label: 'Clothing,Shoes,Accessories',
-  },
-  {
-    value: 'JPY',
-    label: 'Toys, Games, Hobbies',
-  },
-  {
-    value: 'JPY',
-    label: 'Sports and Outdoors',
-  }
-];
 
 const ProductForm = () => {
   const [productState, setproductState] = useState({
@@ -98,10 +75,11 @@ const ProductForm = () => {
           className=" justify-center justify-space-between-md align-stretch"
           onSubmit={handleFormSubmit}
         >
+          <UploadAndDisplayImage />
           <TextField
             margin="normal"
             required
-            placeholder="Here's a new Product name"
+            label="Here's a new Product name"
             name="productname"
             value={productState.productname}
             className="form-input col-12 col-md-9"
@@ -109,60 +87,35 @@ const ProductForm = () => {
           />
           <TextField
             margin="normal"
-            required
-            label="description"
-            name="description"
-            value={productState.description}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-          />
-          <TextField
             placeholder="category"
             name="category"
             value={productState.category}
             className="form-input col-12 col-md-9"
             onChange={handleChange}
           />
-          <Box
-
-            sx={{
-              '& .MuiTextField-root': { width: '100%' },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <div>
-              <TextField
-                margin="normal"
-                fullWidth
-                id="outlined-select-category"
-                select
-                value={productState.category}
-                onChange={handleChange}
-              >
-                {categories.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-          </Box>
-          <TextField
-            placeholder="image"
-            name="image"
-            value={productState.image}
-            className="form-input col-12 col-md-9"
-            onChange={handleChange}
-            
-          ></TextField><UploadAndDisplayImage />
-          
           <TextField
             margin="normal"
             required
             placeholder="price"
             name="price"
             value={productState.price}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <TextField
+            margin="normal"
+            placeholder="image"
+            name="image"
+            value={productState.image}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}>
+          </TextField>
+          <TextField
+            margin="normal"
+            required
+            label="description"
+            name="description"
+            value={productState.description}
             className="form-input col-12 col-md-9"
             onChange={handleChange}
           />
