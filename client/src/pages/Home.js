@@ -70,7 +70,7 @@ const Home = ({ searchValue, onAddToCart}) => {
 
   return (
     <main sx={{ mt: 6 }}>
-      <button onClick={electronicsClick}>Test Electronics</button>
+      <button onClick={electronicsClick}>Electronics</button>
       <button onClick={homeAndGarden}>Home and Garden</button>
       <button onClick={clothingShoesAndAccessories}>Clothing, Shoes, and Accessories</button>
       <button onClick={toysAndGames}>Toys, Games, Hobbies</button>

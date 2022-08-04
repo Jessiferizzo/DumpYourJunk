@@ -31,7 +31,6 @@ export default function Navigation({electronicsClick}) {
   return (
     <Container maxWidth="xl">
       <div onClick = {electronicsClick} style={{cursor: 'pointer'}}>
-        <p>Electronics</p>
         </div>
     <Box sx={{ width: '100%' }} >
       <Tabs
