@@ -29,7 +29,7 @@ A commercial website for to sell goods or items not needed any more
 
 ## Installation Instruction on localhost
 `npm install`
-### Serve on localhost:3001
+### Serve on localhost:3000
 `npm run seed` - To include fake data
 <br />
 `npm run develop`

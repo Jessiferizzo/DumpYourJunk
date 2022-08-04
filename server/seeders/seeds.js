@@ -43,22 +43,22 @@ db.once("open", async () => {
 
     if (category === "Electronics") {
       image =
-        "https://thumbor.offerup.com/_hzrXhvg_p0dy7kqtgKHzYLPeNI=/640x480/df6a/df6a123c84c04d179a2c6f81c7807a96.jpg";
+        "https://images.unsplash.com/photo-1495121553079-4c61bcce1894?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=981&q=80";
     } else if (category === "Home and Garden") {
       image =
         "https://thumbor.offerup.com/eOuWzhE3AmlADp5tRT1RyboKKXA=/756x1008/cadf/cadfdd8f099e4637bbbb336701246f69.jpg";
     } else if (category === "Clothing, Shoes, Accessories") {
       image =
-        "https://thumbor.offerup.com/Qb0tu4Ew7CB_XlawY5ALAKJeYlA=/1440x1920/c502/c502200696c84a14b0921495abbea32c.jpg";
+        "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80";
     } else if (category === "Toys, Games, Hobbies") {
       image =
-        "https://thumbor.offerup.com/kjqBAP3OT-gOZLq_HJQoGMd_HEg=/640x674/bbb1/bbb17ef774844852a0fded14bddbc063.jpg";
+        "https://images.unsplash.com/photo-1530325553241-4f6e7690cf36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80";
     } else if (category === "Pets") {
       image =
-        "https://thumbor.offerup.com/Yi9bXGgdgLLALdr0pm83ItXIrss=/1440x1920/dad5/dad5d5b4f0944beeb2d9c203ec3e81ac.jpg";
+        "https://images.unsplash.com/photo-1604186838309-c6715f0d3e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80";
     } else if (category === "Health and Beauty") {
       image =
-        "https://thumbor.offerup.com/S6OW-WXyUiSN3brsRWknEA3pbNc=/1442x1922/8f88/8f88ad19521347e2addbda8e1f21e8ee.jpg";
+        "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80";
     } else {
       image =
         "https://thumbor.offerup.com/_hzrXhvg_p0dy7kqtgKHzYLPeNI=/640x480/df6a/df6a123c84c04d179a2c6f81c7807a96.jpg";
