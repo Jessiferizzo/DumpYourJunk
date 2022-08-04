@@ -60,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = ({ searchValue, setSearchValue, cartProducts }) => {
+const Header = ({ searchValue, setSearchValue, cartProducts, electronicsClick }) => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -130,7 +130,7 @@ const Header = ({ searchValue, setSearchValue, cartProducts }) => {
         <Container>
           {Auth.loggedIn() && (
             <>
-              <Navigation></Navigation>
+              <Navigation electronicsClick={electronicsClick}></Navigation>
             </>
           )}
         </Container>

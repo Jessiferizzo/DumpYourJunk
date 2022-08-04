@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ApolloProvider,
   ApolloClient,
@@ -16,7 +16,10 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart"
-import Nav from "./components/Nav"
+import Auth from "./utils/auth";
+import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCTS } from "./utils/queries";
+
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -69,15 +72,14 @@ function App() {
     }
   }
 
+  
   return (
     <ApolloProvider client={client}>
-
       <ThemeProvider theme={theme}>
         <Router>
-          <Header searchValue={searchValue} setSearchValue={setSearchValue} cartProducts={cartProducts} />
+          <Header searchValue={searchValue} setSearchValue={setSearchValue} cartProducts={cartProducts}/>
           <Routes>
-            <Route path="/" element={<Home searchValue={searchValue} onAddToCart={onAddToCart} />} />
-            <Route path="/nav" element={<Nav/>} />
+            <Route path="/" element={<Home searchValue={searchValue} onAddToCart={onAddToCart}/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile">
