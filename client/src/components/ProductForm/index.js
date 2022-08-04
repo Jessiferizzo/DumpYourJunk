@@ -2,25 +2,33 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
 import { QUERY_PRODUCTS } from '../../utils/queries';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-import { Button, Card, Modal, TextField } from "@mui/material";
-import { Box, Container } from "@mui/system";
-import SelectTextFields from "../../components/CategoryDropdown";
+import { QUERY_ME } from '../../utils/queries';
+import { Button, TextField, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import MenuItem from '@mui/material/MenuItem';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  display: 'flex',
-  maxWidth: '100vh',
-  maxheight: '100vh',
-  radius: ''
-};
+const categories = [
+  {
+    value: 'USD',
+    label: 'Electronics',
+  },
+  {
+    value: 'EUR',
+    label: 'Home and Garden',
+  },
+  {
+    value: 'BTC',
+    label: 'Clothing,Shoes,Accessories',
+  },
+  {
+    value: 'JPY',
+    label: 'Toys, Games, Hobbies',
+  },
+  {
+    value: 'JPY',
+    label: 'Sports and Outdoors',
+  }
+];
 
 const ProductForm = () => {
   const [productState, setproductState] = useState({
@@ -34,10 +42,10 @@ const ProductForm = () => {
 
   // const [addProduct] = useMutation(ADD_PRODUCT);
 
-  const [addProduct, { error }] = useMutation(ADD_PRODUCT, {
+  const [addProduct,] = useMutation(ADD_PRODUCT, {
     update(cache, { data: { addProduct } }) {
-  
-        // could potentially not exist yet, so wrap in a try/catch
+
+      // could potentially not exist yet, so wrap in a try/catch
       try {
         // update me array's cache
         const { me } = cache.readQuery({ query: QUERY_ME });
@@ -48,7 +56,7 @@ const ProductForm = () => {
       } catch (e) {
         console.warn("First product insertion by user!")
       }
-  
+
       // update thought array's cache
       const { products } = cache.readQuery({ query: QUERY_PRODUCTS });
       cache.writeQuery({
@@ -85,55 +93,86 @@ const ProductForm = () => {
     }
   };
 
-const [open, setOpen] = React.useState(false);
-const handleOpen = () => setOpen(true);
-const handleClose = () => setOpen(false);
+
   return (
     <div>
-      <p className={`m-0`}></p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
-        onSubmit={handleFormSubmit}
-      >
-        <TextField
-          placeholder="Here's a new Product name"
-          name="productname"
-          value={productState.productname}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        />
-        <TextField
-          placeholder="Description"
-          name="description"
-          value={productState.description}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        />
-        <TextField
-          placeholder="Category"
-          name="category"
-          value={productState.category}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        />
-        <TextField
-          placeholder="image"
-          name="image"
-          value={productState.image}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        />
-        <TextField
-          placeholder="price"
-          name="price"
-          value={productState.price}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        />
-        <Button variant="contained" className="btn col-12 col-md-3" type="submit">
-          Submit
-        </Button>
-      </form>
+      <Typography variant='h5' sx={{ mb: '3' }}>Upload a product</Typography>
+      <Box sx={{ width: '50%' }}>
+        <form
+          className=" justify-center justify-space-between-md align-stretch"
+          onSubmit={handleFormSubmit}
+        >
+          <TextField
+            margin="normal"
+            required
+            placeholder="Here's a new Product name"
+            name="productname"
+            value={productState.productname}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <TextField
+            margin="normal"
+            required
+            label="description"
+            name="description"
+            value={productState.description}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <TextField
+            placeholder="category"
+            name="category"
+            value={productState.category}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <Box
+
+            sx={{
+              '& .MuiTextField-root': { width: '100%' },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <div>
+              <TextField
+                margin="normal"
+                fullWidth
+                id="outlined-select-category"
+                select
+                value={productState.category}
+                onChange={handleChange}
+              >
+                {categories.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+          </Box>
+          <TextField
+            placeholder="image"
+            name="image"
+            value={productState.image}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <TextField
+            margin="normal"
+            required
+            placeholder="price"
+            name="price"
+            value={productState.price}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+          <Button variant="contained" className="btn col-12 col-md-3" type="submit">
+            Submit
+          </Button>
+        </form>
+      </Box>
     </div>
   );
 };
